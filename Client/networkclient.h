@@ -10,7 +10,7 @@ class NetworkClient : public QObject
 {
     Q_OBJECT
 public:
-    explicit NetworkClient(QObject *parent = nullptr);
+    static NetworkClient* getinstance();
     ~NetworkClient();
 
     void connectToServer(const QString &host, quint16 port);
@@ -37,6 +37,9 @@ private slots:
     void onReadyRead();
 
 private:
+    static NetworkClient* instance;
+    explicit NetworkClient(QObject *parent = nullptr);
+
     QTcpSocket *socket;
     QByteArray buffer;
     QString sessionToken;

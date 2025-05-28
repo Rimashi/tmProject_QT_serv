@@ -2,29 +2,88 @@
 #define ROTR(x, n) (((x) >> (n)) | ((x) << (64 - (n))))
 #define SHR(x, n) ((x) >> (n))
 
-char auth(QString login, QString password)
-{
-    if (login == "admin" && password == "123") {
-        return 'a';
-    }
-    // Проверяем учетные данные пользователя
-    else if (login == "user" && password == "12345") {
-        return 'u';
-    }
-    else if (login == "user1" && password == "12345") {
-        return 'u';
-    }
-    return 'e';
-    //return ClientAPI::get_instance()->auth(login,password);
-    //return ClientAPI::get_instance()->auth(shifr(login),hashed(password));
+char auth(const QString login, const QString password) {
+    /*
+    NetworkClient* client = NetworkClient::getinstance();
+
+    QEventLoop loop;
+    char result = 'e'; // По умолчанию error
+
+    // Подключение к сигналам
+    QObject::connect(client, &NetworkClient::loginSuccess, [&loop, &result](const QJsonObject& response) {
+        QString role = response["role"].toString();
+        if (role == "admin") {
+            result = 'a'; //admin
+        } else if (role == "user") {
+            result = 'u'; //user
+        } else {
+            result = 'e'; // error
+        }
+        loop.quit();
+    });
+
+    QObject::connect(client, &NetworkClient::loginFailed, [&loop, &result](const QString& error) {
+        qWarning() << "Login failed:" << error;
+        result = 'e';
+        loop.quit();
+    });
+
+    QObject::connect(client, &NetworkClient::connected, [&]() {
+        client->sendLogin(login, password);
+    });
+
+    QObject::connect(client, &NetworkClient::errorOccurred, [&](const QString& error) {
+        qWarning() << "Connection error:" << error;
+        result = 'e';
+        loop.quit();
+    });
+
+    // Подключаемся к локальному серверу
+    client->connectToServer("127.0.0.1", 5555);
+
+    // Ждём ответа или ошибки
+    loop.exec();
+
+    return result;
+*/
+    return 'u';
 }
 
-bool reg(QString login, QString password)
-{
-    if (login != "admin" || login != "user") {
-        return  auth(login,password)=='u';
+bool reg(const QString login, const QString password) {
+    if (login == "admin" || login == "user") {
+        return false;
     }
-    return false;
+
+    NetworkClient* client = (NetworkClient::getinstance());
+    QEventLoop loop;
+    bool success = false;
+
+    QObject::connect(client, &NetworkClient::registerSuccess, [&]() {
+        success = true;
+        loop.quit();
+    });
+
+    QObject::connect(client, &NetworkClient::registerFailed, [&](const QString& error) {
+        qWarning() << "Registration failed:" << error;
+        success = false;
+        loop.quit();
+    });
+
+    QObject::connect(client, &NetworkClient::connected, [&]() {
+        client->sendRegister("Фамилия", "Имя", login, password); // Можно заменить на реальные данные
+    });
+
+    QObject::connect(client, &NetworkClient::errorOccurred, [&](const QString& error) {
+        qWarning() << "Connection error:" << error;
+        success = false;
+        loop.quit();
+    });
+
+    client->connectToServer("127.0.0.1", 5555);
+
+    loop.exec();
+
+    return success;
 }
 
 //SHA-384

@@ -83,6 +83,34 @@ AdminStatWindow::AdminStatWindow(QWidget *parent)
     statsTable->setColumnWidth(0, 300);
     statsTable->setColumnWidth(1, 200);
 
+    //заполнение
+    QTableWidgetItem *item1 = new QTableWidgetItem("Иванов Иван Иванович");
+    item1->setTextAlignment(Qt::AlignCenter);
+    statsTable->setItem(0, 0, item1);
+
+    QTableWidgetItem *item2 = new QTableWidgetItem("Математика");
+    item2->setTextAlignment(Qt::AlignCenter);
+    statsTable->setItem(0, 1, item2);
+
+    QTableWidgetItem *item3 = new QTableWidgetItem("85%");
+    item3->setTextAlignment(Qt::AlignCenter);
+    statsTable->setItem(0, 2, item3);
+
+    QTableWidgetItem *item22 = new QTableWidgetItem("Павлова Ольга Игоревна");
+    item22->setTextAlignment(Qt::AlignCenter);
+    statsTable->setItem(7, 0, item22);
+
+    QTableWidgetItem *item23 = new QTableWidgetItem("Информатика");
+    item23->setTextAlignment(Qt::AlignCenter);
+    statsTable->setItem(7, 1, item23);
+
+    QTableWidgetItem *item24 = new QTableWidgetItem("95%");
+    item24->setTextAlignment(Qt::AlignCenter);
+    statsTable->setItem(7, 2, item24);
+
+
+    contentLayout->addWidget(statsTable, 3);
+
     mainLayout->addWidget(statsTable, 1);
 
     connect(exitButton, &QPushButton::clicked, this, &AdminStatWindow::close);

@@ -96,7 +96,7 @@ AdminWindow::AdminWindow(QWidget *parent)
 
     scrollContent = new QWidget();
     scrollLayout = new QVBoxLayout(scrollContent);
-/*
+
     for (int i = 1; i <= 15; ++i) {
         QFrame *userFrame = new QFrame();
         userFrame->setStyleSheet("border: 1px solid black; padding: 0px; margin-bottom: 0px;");
@@ -112,7 +112,7 @@ AdminWindow::AdminWindow(QWidget *parent)
 
         scrollLayout->addWidget(userFrame);
     }
-*/
+
 
     scrollLayout->addStretch();
     scrollArea->setWidget(scrollContent);

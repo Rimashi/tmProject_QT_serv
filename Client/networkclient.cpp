@@ -73,6 +73,13 @@ void NetworkClient::sendLogin(const QString &login, const QString &password)
     sendRequest(request);
 }
 
+NetworkClient* NetworkClient::getinstance()
+{
+    if (!instance)
+        instance = new NetworkClient;
+    return instance;
+}
+
 void NetworkClient::sendRegister(const QString &surname, const QString &name,
                                  const QString &login, const QString &password)
 {
@@ -153,3 +160,5 @@ void NetworkClient::onReadyRead()
         }
     }
 }
+
+NetworkClient* NetworkClient::instance = nullptr;

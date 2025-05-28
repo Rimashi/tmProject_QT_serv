@@ -20,6 +20,7 @@ private:
 
 private slots:
     void showUsersWindow();
+
 };
 
 #endif // ADMINSTATWINDOW_H

@@ -7,6 +7,8 @@
 #include <sstream>
 #include <string>
 #include <vector>
+#include <QEventLoop>
+#include <QJsonObject>
 #include <QMessageBox>
 #include <QStatusBar>
 #include <QSettings>

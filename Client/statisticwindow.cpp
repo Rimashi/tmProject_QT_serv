@@ -82,7 +82,7 @@ StatisticWindow::StatisticWindow(QWidget *parent)
     statisticTable->setEditTriggers(QAbstractItemView::NoEditTriggers);
     statisticTable->setSelectionBehavior(QAbstractItemView::SelectRows);
     statisticTable->setSelectionMode(QAbstractItemView::SingleSelection);
-/*
+
     statisticTable->setRowCount(3);
     statisticTable->setItem(0, 0, new QTableWidgetItem("Иванов И.И."));
     statisticTable->setItem(0, 1, new QTableWidgetItem("1"));
@@ -95,7 +95,7 @@ StatisticWindow::StatisticWindow(QWidget *parent)
     statisticTable->setItem(2, 0, new QTableWidgetItem("Сидоров С.С."));
     statisticTable->setItem(2, 1, new QTableWidgetItem("1"));
     statisticTable->setItem(2, 2, new QTableWidgetItem("78%"));
-*/
+
     // Размеры колонок
     statisticTable->setColumnWidth(0, 300);
     statisticTable->setColumnWidth(1, 100);

@@ -19,7 +19,6 @@ SOURCES += \
     mainwindow.cpp \
     networkclient.cpp \
     registerwindow.cpp \
-    regwindow.cpp \
     statisticwindow.cpp \
     testwindow1.cpp \
     testwindow2.cpp \
@@ -37,7 +36,6 @@ HEADERS += \
     mainwindow.h \
     networkclient.h \
     registerwindow.h \
-    regwindow.h \
     statisticwindow.h \
     testwindow1.h \
     testwindow2.h \
