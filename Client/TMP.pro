@@ -12,13 +12,13 @@ SOURCES += \
     adminstatwindow.cpp \
     adminwindow.cpp \
     authwindow.cpp \
-    clientapi.cpp \
     func2client.cpp \
     global.cpp \
     main.cpp \
     mainwindow.cpp \
     networkclient.cpp \
     registerwindow.cpp \
+    singleton_client.cpp \
     statisticwindow.cpp \
     testwindow1.cpp \
     testwindow2.cpp \
@@ -30,12 +30,12 @@ HEADERS += \
     adminstatwindow.h \
     adminwindow.h \
     authwindow.h \
-    clientapi.h \
     func2client.h \
     global.h \
     mainwindow.h \
     networkclient.h \
     registerwindow.h \
+    singleton_client.h \
     statisticwindow.h \
     testwindow1.h \
     testwindow2.h \
@@ -47,7 +47,6 @@ FORMS += \
     adminstatwindow.ui \
     adminwindow.ui \
     authwindow.ui \
-    clientapi.ui \
     mainwindow.ui \
     networkclient.ui \
     registerwindow.ui \

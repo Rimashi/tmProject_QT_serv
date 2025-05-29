@@ -1,7 +1,10 @@
 #ifndef FUNC2CLIENT_H
 #define FUNC2CLIENT_H
+
 #include <QString>
-#include "networkclient.h"
+#include <QJsonArray>
+#include <QJsonObject>
+#include "singleton_client.h"
 #include <iostream>
 #include <iomanip>
 #include <sstream>
@@ -16,13 +19,11 @@
 #include <QTimer>
 #include <cstring>
 
-void handleLoginSuccess(const QJsonObject &response);
-void handleLoginFailed(const QString &error);
-void handleRegisterSuccess();
-void handleRegisterFailed(const QString &error);
-void toggleTheme(bool dark);
+class func2client {
+public:
+    static QString registerUser(const QString& username, const QString& password);
+    static QString loginUser(const QString& username, const QString& password);
+    static QString getStatistics();
+};
 
-char auth(QString login, QString password);
-bool reg(QString login, QString password);
-std::vector<uint8_t> pad_message(const std::string& message);
 #endif // FUNC2CLIENT_H

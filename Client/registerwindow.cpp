@@ -1,11 +1,8 @@
 #include "registerwindow.h"
 #include "authwindow.h"
-#include <QApplication>
-#include "global.h"
 #include "mainwindow.h"
+#include "func2client.h"
 #include <QMessageBox>
-
-// extern bool isDarkTheme;
 
 RegisterWindow::RegisterWindow(QWidget *parent) : QWidget(parent) {
     setWindowTitle("Регистрация");
@@ -17,11 +14,11 @@ RegisterWindow::RegisterWindow(QWidget *parent) : QWidget(parent) {
     titleLabel->setAlignment(Qt::AlignCenter);
     layout->addWidget(titleLabel);
 
-    QLineEdit *surnameInput = new QLineEdit(this);
+    surnameInput = new QLineEdit(this);
     surnameInput->setPlaceholderText("Фамилия");
     layout->addWidget(surnameInput);
 
-    QLineEdit *nameInput = new QLineEdit(this);
+    nameInput = new QLineEdit(this);
     nameInput->setPlaceholderText("Имя");
     layout->addWidget(nameInput);
 
@@ -40,20 +37,15 @@ RegisterWindow::RegisterWindow(QWidget *parent) : QWidget(parent) {
     QPushButton *backButton = new QPushButton("Назад", this);
     layout->addWidget(backButton);
 
-    QPushButton *themeToggle = new QPushButton("🌙 Темная тема", this);
-    layout->addWidget(themeToggle);
-
-    setStyleSheet("QWidget { background-color: #f4f4f4; color: black;}"
-                  "QPushButton { background-color: black;color: white; border-radius: 5px; padding: 10px;}"
-                  "QPushButton:hover { background-color: gray;}"
-                  "QLineEdit {border: 2px solid black; border-radius: 5px; padding: 5px;}"
-                  );
+    setStyleSheet("QWidget { background-color: #f4f4f4; color: black; }"
+                  "QPushButton { background-color: black; color: white; border-radius: 5px; padding: 10px; }"
+                  "QPushButton:hover { background-color: gray; }"
+                  "QLineEdit { border: 2px solid black; border-radius: 5px; padding: 5px; }");
 
     setLayout(layout);
 
     connect(backButton, &QPushButton::clicked, this, &RegisterWindow::goBack);
-    connect(themeToggle, &QPushButton::clicked, this, &RegisterWindow::toggleTheme);
-    connect(registerButton, &QPushButton::clicked, this, &RegisterWindow::regTry); //Кнопка для отправки инфо в БД
+    connect(registerButton, &QPushButton::clicked, this, &RegisterWindow::regTry);
 }
 
 void RegisterWindow::goBack() {
@@ -62,21 +54,18 @@ void RegisterWindow::goBack() {
     this->close();
 }
 
-void RegisterWindow::toggleTheme() {
-    isDarkTheme = !isDarkTheme;
-    qApp->setStyleSheet(isDarkTheme ? "background-color: #121212; color: white;" : "");
-}
-
-void RegisterWindow::regTry(){
+void RegisterWindow::regTry() {
     QString login = usernameInput->text();
     QString password = passwordInput->text();
-    if(reg(login, password)){
+
+    QString response = func2client::registerUser(login, password);
+    if (response == "ok") {
+        QMessageBox::information(this, "Регистрация", "Регистрация успешна!");
         MainWindow *mainWindow = new MainWindow();
         mainWindow->show();
         this->close();
     }
     else {
-        QMessageBox::warning(this, "Ошибка", "Неверный логин или пароль");
+        QMessageBox::warning(this, "Ошибка", "Регистрация не удалась. Возможно, такой логин уже существует.");
     }
 }
-
