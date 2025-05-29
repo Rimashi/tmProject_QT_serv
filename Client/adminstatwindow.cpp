@@ -2,6 +2,7 @@
 #include "adminwindow.h"
 #include "ui_adminstatwindow.h"
 #include <QApplication>
+#include <QHeaderView>
 #include <QWidget>
 #include <QVBoxLayout>
 #include <QHBoxLayout>
@@ -19,100 +20,144 @@ AdminStatWindow::AdminStatWindow(QWidget *parent)
     , ui(new Ui::AdminStatWindow)
 {
     ui->setupUi(this);
-    resize(800, 500);
-    this->setFixedSize(800, 500);
+    resize(1000, 600);
+    this->setFixedSize(1000, 600);
     setWindowTitle("Администратор - Статистика");
     setStyleSheet("background-color: white; color: black;");
 
-    QVBoxLayout *mainLayout = new QVBoxLayout(this);
+    // Главный контейнер (горизонтальный)
+    QHBoxLayout *mainLayout = new QHBoxLayout(this);
+    mainLayout->setContentsMargins(0, 0, 0, 0);
+    mainLayout->setSpacing(0);
 
-    // Шапка
-    QFrame *headerFrame = new QFrame();
-    headerFrame->setStyleSheet("background-color: black; color: white; padding: 0px;");
-    QHBoxLayout *headerLayout = new QHBoxLayout(headerFrame);
+    // Левая панель (меню)
+    QFrame *leftPanel = new QFrame();
+    leftPanel->setFixedWidth(200);
+    leftPanel->setStyleSheet("background-color: #f0f0f0; border-right: 1px solid #d0d0d0;");
 
-    QLabel *roleLabel = new QLabel("Администратор");
-    roleLabel->setStyleSheet("font-weight: bold; font-size: 16px;");
-    headerLayout->addWidget(roleLabel);
+    QVBoxLayout *leftLayout = new QVBoxLayout(leftPanel);
+    leftLayout->setContentsMargins(10, 20, 10, 20);
+    leftLayout->setSpacing(15);
 
-    headerLayout->addStretch();
-
-    mainLayout->addWidget(headerFrame);
-
-    QHBoxLayout *contentLayout = new QHBoxLayout();
-
-    // Левая колонка (меню)
-    QFrame *leftColumn = new QFrame();
-    leftColumn->setStyleSheet("padding: 10px;");
-    QVBoxLayout *leftLayout = new QVBoxLayout(leftColumn);
-
+    // Кнопки меню
     QPushButton *usersButton = new QPushButton("Пользователи");
-    usersButton->setStyleSheet("QPushButton { background-color: black; color: white; padding: 10px; border: none; }"
-                               "QPushButton:hover { background-color: #333; }");
+    usersButton->setFixedHeight(40);
+    usersButton->setStyleSheet(
+        "QPushButton {"
+        "   background-color: black;"
+        "   color: white;"
+        "   border: none;"
+        "   border-radius: 5px;"
+        "   font-size: 14px;"
+        "}"
+        "QPushButton:hover {"
+        "   background-color: #d0d0d0;"
+        "}"
+        );
 
     QPushButton *statsButton = new QPushButton("Статистика");
-    statsButton->setStyleSheet("QPushButton { background-color: gray; color: white; padding: 10px; border: none; }"
-                               "QPushButton:hover { background-color: #333; }");
+    statsButton->setFixedHeight(40);
+    statsButton->setStyleSheet(
+        "QPushButton {"
+        "   background-color: #404040;"
+        "   color: white;"
+        "   border: none;"
+        "   border-radius: 5px;"
+        "   font-size: 14px;"
+        "}"
+        "QPushButton:hover {"
+        "   background-color: #505050;"
+        "}"
+        );
 
     leftLayout->addWidget(usersButton);
     leftLayout->addWidget(statsButton);
     leftLayout->addStretch();
 
-    QPushButton *exitButton = new QPushButton("ВЫХОД");
-    exitButton->setStyleSheet("QPushButton { background: #ea4335; color: white; min-width: 40px; min-height: 20px; font-size: 11.5pt; border: none; padding-left: 10px; padding-top: 4px; padding-right: 10px; padding-bottom: 4px; max-height: 10px; margin-right: 0px}"
-                              "QPushButton:hover { background: #d33426; }");
-    exitButton->setIconSize(QSize(32, 32));
+    // Кнопка выхода
+    QPushButton *exitButton = new QPushButton("Выход");
+    exitButton->setFixedHeight(40);
+    exitButton->setStyleSheet(
+        "QPushButton {"
+        "   background-color: #ea4335;"
+        "   color: white;"
+        "   border: none;"
+        "   border-radius: 5px;"
+        "   font-size: 14px;"
+        "}"
+        "QPushButton:hover {"
+        "   background-color: #d33426;"
+        "}"
+        );
     leftLayout->addWidget(exitButton);
 
-    mainLayout->addWidget(leftColumn, 1);
+    mainLayout->addWidget(leftPanel);
 
-    // Правая колонка (контент - статистика)
+    // Правая часть (контент)
+    QFrame *contentFrame = new QFrame();
+    QVBoxLayout *contentLayout = new QVBoxLayout(contentFrame);
+    contentLayout->setContentsMargins(20, 20, 20, 20);
+
+    // Заголовок
+    QLabel *titleLabel = new QLabel("Статистика тестирования");
+    titleLabel->setStyleSheet("font-size: 18px; font-weight: bold; margin-bottom: 20px;");
+    contentLayout->addWidget(titleLabel);
+
     // Таблица статистики
     QTableWidget *statsTable = new QTableWidget();
     statsTable->setColumnCount(3);
     statsTable->setHorizontalHeaderLabels(QStringList() << "ФИО студента" << "Тест" << "Результат");
+    statsTable->setRowCount(10); // Установим фиксированное количество строк
 
-    // Настройка внешнего вида таблицы
-    statsTable->setStyleSheet("QTableWidget { border: 1px solid #e0e0e0; font-size: 12pt; margin-left: 5px; }"
-                              "QHeaderView::section { background-color: #f4f4f4; padding: 5px; }");
+    // Настройка таблицы
+    statsTable->setStyleSheet(
+        "QTableWidget {"
+        "   border: 1px solid #e0e0e0;"
+        "   font-size: 12pt;"
+        "   selection-background-color: #e0e0e0;"
+        "}"
+        "QHeaderView::section {"
+        "   background-color: black;"
+        "   color: white;"
+        "   padding: 8px;"
+        "   border: none;"
+        "}"
+        );
+
     statsTable->setEditTriggers(QAbstractItemView::NoEditTriggers);
     statsTable->setSelectionBehavior(QAbstractItemView::SelectRows);
     statsTable->setSelectionMode(QAbstractItemView::SingleSelection);
+    statsTable->verticalHeader()->setVisible(false);
+    statsTable->horizontalHeader()->setStretchLastSection(true);
 
-    // Размеры колонок
-    statsTable->setColumnWidth(0, 300);
-    statsTable->setColumnWidth(1, 200);
+    // Установка ширины колонок
+    statsTable->setColumnWidth(0, 350);
+    statsTable->setColumnWidth(1, 300);
 
-    //заполнение
-    QTableWidgetItem *item1 = new QTableWidgetItem("Иванов Иван Иванович");
-    item1->setTextAlignment(Qt::AlignCenter);
-    statsTable->setItem(0, 0, item1);
+    // Заполнение таблицы данными
+    QStringList names = {"Иванов Иван Иванович", "Петров Петр Петрович", "Сидорова Анна Михайловна",
+                         "Кузнецов Дмитрий Сергеевич", "Павлова Ольга Игоревна"};
+    QStringList tests = {"Математика", "Физика", "Информатика", "История", "Английский язык"};
 
-    QTableWidgetItem *item2 = new QTableWidgetItem("Математика");
-    item2->setTextAlignment(Qt::AlignCenter);
-    statsTable->setItem(0, 1, item2);
+    for (int i = 0; i < 5; ++i) {
+        QTableWidgetItem *nameItem = new QTableWidgetItem(names[i]);
+        nameItem->setTextAlignment(Qt::AlignCenter);
+        statsTable->setItem(i, 0, nameItem);
 
-    QTableWidgetItem *item3 = new QTableWidgetItem("85%");
-    item3->setTextAlignment(Qt::AlignCenter);
-    statsTable->setItem(0, 2, item3);
+        QTableWidgetItem *testItem = new QTableWidgetItem(tests[i]);
+        testItem->setTextAlignment(Qt::AlignCenter);
+        statsTable->setItem(i, 1, testItem);
 
-    QTableWidgetItem *item22 = new QTableWidgetItem("Павлова Ольга Игоревна");
-    item22->setTextAlignment(Qt::AlignCenter);
-    statsTable->setItem(7, 0, item22);
+        QTableWidgetItem *resultItem = new QTableWidgetItem(QString::number(70 + i*5) + "%");
+        resultItem->setTextAlignment(Qt::AlignCenter);
+        statsTable->setItem(i, 2, resultItem);
+    }
 
-    QTableWidgetItem *item23 = new QTableWidgetItem("Информатика");
-    item23->setTextAlignment(Qt::AlignCenter);
-    statsTable->setItem(7, 1, item23);
+    contentLayout->addWidget(statsTable);
 
-    QTableWidgetItem *item24 = new QTableWidgetItem("95%");
-    item24->setTextAlignment(Qt::AlignCenter);
-    statsTable->setItem(7, 2, item24);
+    mainLayout->addWidget(contentFrame, 1);
 
-
-    contentLayout->addWidget(statsTable, 3);
-
-    mainLayout->addWidget(statsTable, 1);
-
+    // Подключение сигналов
     connect(exitButton, &QPushButton::clicked, this, &AdminStatWindow::close);
     connect(usersButton, &QPushButton::clicked, this, &AdminStatWindow::showUsersWindow);
 }
@@ -125,6 +170,6 @@ AdminStatWindow::~AdminStatWindow()
 void AdminStatWindow::showUsersWindow()
 {
     hide();
-    AdminWindow *statWindow = new AdminWindow();
-    statWindow->show();
+    AdminWindow *adminWindow = new AdminWindow();
+    adminWindow->show();
 }

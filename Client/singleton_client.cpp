@@ -7,7 +7,7 @@ Singleton_client* Singleton_client::pInstance = nullptr;
 Singleton_clientDestroyer Singleton_client::destroyer;
 QTcpSocket* Singleton_client::tcpInstance = nullptr;
 
-// --- Destroyer ---
+// Destroyer
 Singleton_clientDestroyer::~Singleton_clientDestroyer()
 {
     delete pInstance;
@@ -18,7 +18,7 @@ void Singleton_clientDestroyer::initialize(Singleton_client *p)
     pInstance = p;
 }
 
-// --- Singleton_client ---
+// Singleton_client
 Singleton_client::Singleton_client(QObject *parent) : QObject(parent)
 {
     initTCP();

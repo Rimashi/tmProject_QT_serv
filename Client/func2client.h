@@ -2,26 +2,14 @@
 #define FUNC2CLIENT_H
 
 #include <QString>
+#include <QObject>
 #include <QJsonArray>
 #include <QJsonObject>
-#include "singleton_client.h"
-#include <iostream>
-#include <iomanip>
-#include <sstream>
-#include <string>
-#include <vector>
-#include <QEventLoop>
-#include <QJsonObject>
-#include <QMessageBox>
-#include <QStatusBar>
-#include <QSettings>
-#include <QApplication>
-#include <QTimer>
-#include <cstring>
 
-class func2client {
+class func2client : public QObject{
+    Q_OBJECT
 public:
-    static QString registerUser(const QString& username, const QString& password);
+    static QString registerUser(const QString& surname, const QString& name, const QString& username, const QString& password);
     static QString loginUser(const QString& username, const QString& password);
     static QString getStatistics();
 };

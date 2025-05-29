@@ -54,18 +54,20 @@ void RegisterWindow::goBack() {
     this->close();
 }
 
-void RegisterWindow::regTry() {
+void RegisterWindow::regTry(){
+    QString surname = surnameInput->text();
+    QString name = nameInput->text();
     QString login = usernameInput->text();
     QString password = passwordInput->text();
 
-    QString response = func2client::registerUser(login, password);
-    if (response == "ok") {
-        QMessageBox::information(this, "Регистрация", "Регистрация успешна!");
+    QString response = func2client::registerUser(surname, name, login, password);
+    if(response == "ok") {
         MainWindow *mainWindow = new MainWindow();
         mainWindow->show();
         this->close();
     }
     else {
-        QMessageBox::warning(this, "Ошибка", "Регистрация не удалась. Возможно, такой логин уже существует.");
+        QMessageBox::warning(this, "Ошибка", "Ошибка регистрации: " + response);
     }
 }
+
