@@ -1,0 +1,339 @@
+\doxysection{Reg\+Window Class Reference}
+\hypertarget{class_reg_window}{}\label{class_reg_window}\index{RegWindow@{RegWindow}}
+
+
+Модель данных \doxylink{class_reg_window}{Reg\+Window} (шаблон на основе QAbstract\+Item\+Model).  
+
+
+
+
+{\ttfamily \#include $<$regwindow.\+h$>$}
+
+Inheritance diagram for Reg\+Window\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_reg_window}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_reg_window_a653e0263f1eda4778617a1f61dab7126}{Reg\+Window}} (QObject \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{class_reg_window_a88bf180852e2747baece84e543dd017e}{parent}}=nullptr)
+\begin{DoxyCompactList}\small\item\em Конструктор модели. \end{DoxyCompactList}\item 
+QVariant \mbox{\hyperlink{class_reg_window_adeeb6e68baaf897cbe57c03e6689e90d}{header\+Data}} (int section, Qt\+::\+Orientation orientation, int role) const override
+\begin{DoxyCompactList}\small\item\em Получает заголовок столбца или строки. \end{DoxyCompactList}\item 
+QModel\+Index \mbox{\hyperlink{class_reg_window_acdcd9136185b783ff9758c22d8220d2e}{index}} (int row, int column, const QModel\+Index \&\mbox{\hyperlink{class_reg_window_a88bf180852e2747baece84e543dd017e}{parent}}=QModel\+Index()) const override
+\begin{DoxyCompactList}\small\item\em Получает индекс дочернего элемента по строке и столбцу. \end{DoxyCompactList}\item 
+QModel\+Index \mbox{\hyperlink{class_reg_window_a88bf180852e2747baece84e543dd017e}{parent}} (const QModel\+Index \&\mbox{\hyperlink{class_reg_window_acdcd9136185b783ff9758c22d8220d2e}{index}}) const override
+\begin{DoxyCompactList}\small\item\em Получает родительский индекс элемента. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_reg_window_af8a7c4893ed948028ce1a2b64021dcab}{row\+Count}} (const QModel\+Index \&\mbox{\hyperlink{class_reg_window_a88bf180852e2747baece84e543dd017e}{parent}}=QModel\+Index()) const override
+\begin{DoxyCompactList}\small\item\em Возвращает количество строк. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_reg_window_aee634dafb10ffa423606bba251c7149f}{column\+Count}} (const QModel\+Index \&\mbox{\hyperlink{class_reg_window_a88bf180852e2747baece84e543dd017e}{parent}}=QModel\+Index()) const override
+\begin{DoxyCompactList}\small\item\em Возвращает количество столбцов. \end{DoxyCompactList}\item 
+QVariant \mbox{\hyperlink{class_reg_window_a7b5e93bb6f5cec3be36ea680ca720690}{data}} (const QModel\+Index \&\mbox{\hyperlink{class_reg_window_acdcd9136185b783ff9758c22d8220d2e}{index}}, int role=Qt\+::\+Display\+Role) const override
+\begin{DoxyCompactList}\small\item\em Возвращает данные для заданного индекса. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_reg_window_a653e0263f1eda4778617a1f61dab7126}{Reg\+Window}} (QObject \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{class_reg_window_a88bf180852e2747baece84e543dd017e}{parent}}=nullptr)
+\begin{DoxyCompactList}\small\item\em Конструктор модели \doxylink{class_reg_window}{Reg\+Window}. \end{DoxyCompactList}\item 
+QVariant \mbox{\hyperlink{class_reg_window_a7b7346787d421acb3f61cc059ccbbe63}{header\+Data}} (int section, Qt\+::\+Orientation orientation, int role=Qt\+::\+Display\+Role) const override
+\begin{DoxyCompactList}\small\item\em Возвращает данные заголовков для указанной секции. \end{DoxyCompactList}\item 
+QModel\+Index \mbox{\hyperlink{class_reg_window_acdcd9136185b783ff9758c22d8220d2e}{index}} (int row, int column, const QModel\+Index \&\mbox{\hyperlink{class_reg_window_a88bf180852e2747baece84e543dd017e}{parent}}=QModel\+Index()) const override
+\begin{DoxyCompactList}\small\item\em Возвращает индекс элемента модели по строке и столбцу. \end{DoxyCompactList}\item 
+QModel\+Index \mbox{\hyperlink{class_reg_window_a88bf180852e2747baece84e543dd017e}{parent}} (const QModel\+Index \&\mbox{\hyperlink{class_reg_window_acdcd9136185b783ff9758c22d8220d2e}{index}}) const override
+\begin{DoxyCompactList}\small\item\em Возвращает индекс родительского элемента. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_reg_window_af8a7c4893ed948028ce1a2b64021dcab}{row\+Count}} (const QModel\+Index \&\mbox{\hyperlink{class_reg_window_a88bf180852e2747baece84e543dd017e}{parent}}=QModel\+Index()) const override
+\begin{DoxyCompactList}\small\item\em Возвращает количество строк в указанном родительском элементе. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_reg_window_aee634dafb10ffa423606bba251c7149f}{column\+Count}} (const QModel\+Index \&\mbox{\hyperlink{class_reg_window_a88bf180852e2747baece84e543dd017e}{parent}}=QModel\+Index()) const override
+\begin{DoxyCompactList}\small\item\em Возвращает количество столбцов в указанном родительском элементе. \end{DoxyCompactList}\item 
+QVariant \mbox{\hyperlink{class_reg_window_a7b5e93bb6f5cec3be36ea680ca720690}{data}} (const QModel\+Index \&\mbox{\hyperlink{class_reg_window_acdcd9136185b783ff9758c22d8220d2e}{index}}, int role=Qt\+::\+Display\+Role) const override
+\begin{DoxyCompactList}\small\item\em Возвращает данные модели по заданному индексу и роли. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Модель данных \doxylink{class_reg_window}{Reg\+Window} (шаблон на основе QAbstract\+Item\+Model). 
+
+Класс модели данных \doxylink{class_reg_window}{Reg\+Window}.
+
+Эта модель предназначена для работы с пользовательскими данными, но пока не реализована. Может быть расширена для отображения в QTree\+View/\+QTable\+View.
+
+Этот класс наследует QAbstract\+Item\+Model и представляет собой шаблон модели, который можно использовать в представлениях (например, QTree\+View или QTable\+View). Пока не реализует конкретную структуру данных. 
+
+\label{doc-constructors}
+\Hypertarget{class_reg_window_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_reg_window_a653e0263f1eda4778617a1f61dab7126}\index{RegWindow@{RegWindow}!RegWindow@{RegWindow}}
+\index{RegWindow@{RegWindow}!RegWindow@{RegWindow}}
+\doxysubsubsection{\texorpdfstring{RegWindow()}{RegWindow()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_reg_window_a653e0263f1eda4778617a1f61dab7126} 
+Reg\+Window\+::\+Reg\+Window (\begin{DoxyParamCaption}\item[{QObject \texorpdfstring{$\ast$}{*}}]{parent}{ = {\ttfamily nullptr}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Конструктор модели. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em parent} & Родительский объект. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_reg_window_a653e0263f1eda4778617a1f61dab7126}\index{RegWindow@{RegWindow}!RegWindow@{RegWindow}}
+\index{RegWindow@{RegWindow}!RegWindow@{RegWindow}}
+\doxysubsubsection{\texorpdfstring{RegWindow()}{RegWindow()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_reg_window_a653e0263f1eda4778617a1f61dab7126} 
+Reg\+Window\+::\+Reg\+Window (\begin{DoxyParamCaption}\item[{QObject \texorpdfstring{$\ast$}{*}}]{parent}{ = {\ttfamily nullptr}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Конструктор модели \doxylink{class_reg_window}{Reg\+Window}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em parent} & Родительский объект. \\
+\hline
+\end{DoxyParams}
+
+
+\label{doc-func-members}
+\Hypertarget{class_reg_window_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_reg_window_aee634dafb10ffa423606bba251c7149f}\index{RegWindow@{RegWindow}!columnCount@{columnCount}}
+\index{columnCount@{columnCount}!RegWindow@{RegWindow}}
+\doxysubsubsection{\texorpdfstring{columnCount()}{columnCount()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_reg_window_aee634dafb10ffa423606bba251c7149f} 
+int Reg\+Window\+::column\+Count (\begin{DoxyParamCaption}\item[{const QModel\+Index \&}]{parent}{ = {\ttfamily QModelIndex()}}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}}
+
+
+
+Возвращает количество столбцов. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em parent} & Родительский индекс. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Количество столбцов. 
+\end{DoxyReturn}
+\Hypertarget{class_reg_window_aee634dafb10ffa423606bba251c7149f}\index{RegWindow@{RegWindow}!columnCount@{columnCount}}
+\index{columnCount@{columnCount}!RegWindow@{RegWindow}}
+\doxysubsubsection{\texorpdfstring{columnCount()}{columnCount()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_reg_window_aee634dafb10ffa423606bba251c7149f} 
+int Reg\+Window\+::column\+Count (\begin{DoxyParamCaption}\item[{const QModel\+Index \&}]{parent}{ = {\ttfamily QModelIndex()}}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}}
+
+
+
+Возвращает количество столбцов в указанном родительском элементе. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em parent} & Родительский индекс (по умолчанию пустой). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Количество столбцов. 
+\end{DoxyReturn}
+\Hypertarget{class_reg_window_a7b5e93bb6f5cec3be36ea680ca720690}\index{RegWindow@{RegWindow}!data@{data}}
+\index{data@{data}!RegWindow@{RegWindow}}
+\doxysubsubsection{\texorpdfstring{data()}{data()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_reg_window_a7b5e93bb6f5cec3be36ea680ca720690} 
+QVariant Reg\+Window\+::data (\begin{DoxyParamCaption}\item[{const QModel\+Index \&}]{index}{, }\item[{int}]{role}{ = {\ttfamily Qt\+:\+:DisplayRole}}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}}
+
+
+
+Возвращает данные для заданного индекса. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & Индекс элемента. \\
+\hline
+{\em role} & Роль данных. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Значение, связанное с индексом. 
+\end{DoxyReturn}
+\Hypertarget{class_reg_window_a7b5e93bb6f5cec3be36ea680ca720690}\index{RegWindow@{RegWindow}!data@{data}}
+\index{data@{data}!RegWindow@{RegWindow}}
+\doxysubsubsection{\texorpdfstring{data()}{data()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_reg_window_a7b5e93bb6f5cec3be36ea680ca720690} 
+QVariant Reg\+Window\+::data (\begin{DoxyParamCaption}\item[{const QModel\+Index \&}]{index}{, }\item[{int}]{role}{ = {\ttfamily Qt\+:\+:DisplayRole}}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}}
+
+
+
+Возвращает данные модели по заданному индексу и роли. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & Индекс элемента. \\
+\hline
+{\em role} & Роль данных (по умолчанию Qt\+::\+Display\+Role). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Данные элемента или пустой QVariant. 
+\end{DoxyReturn}
+\Hypertarget{class_reg_window_adeeb6e68baaf897cbe57c03e6689e90d}\index{RegWindow@{RegWindow}!headerData@{headerData}}
+\index{headerData@{headerData}!RegWindow@{RegWindow}}
+\doxysubsubsection{\texorpdfstring{headerData()}{headerData()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_reg_window_adeeb6e68baaf897cbe57c03e6689e90d} 
+QVariant Reg\+Window\+::header\+Data (\begin{DoxyParamCaption}\item[{int}]{section}{, }\item[{Qt\+::\+Orientation}]{orientation}{, }\item[{int}]{role}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}}
+
+
+
+Получает заголовок столбца или строки. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em section} & Индекс секции (строка или столбец). \\
+\hline
+{\em orientation} & Ориентация (горизонтальная или вертикальная). \\
+\hline
+{\em role} & Роль данных. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Данные заголовка. 
+\end{DoxyReturn}
+\Hypertarget{class_reg_window_a7b7346787d421acb3f61cc059ccbbe63}\index{RegWindow@{RegWindow}!headerData@{headerData}}
+\index{headerData@{headerData}!RegWindow@{RegWindow}}
+\doxysubsubsection{\texorpdfstring{headerData()}{headerData()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_reg_window_a7b7346787d421acb3f61cc059ccbbe63} 
+QVariant Reg\+Window\+::header\+Data (\begin{DoxyParamCaption}\item[{int}]{section}{, }\item[{Qt\+::\+Orientation}]{orientation}{, }\item[{int}]{role}{ = {\ttfamily Qt\+:\+:DisplayRole}}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}}
+
+
+
+Возвращает данные заголовков для указанной секции. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em section} & Индекс секции (строки или столбца). \\
+\hline
+{\em orientation} & Ориентация (горизонтальная или вертикальная). \\
+\hline
+{\em role} & Роль данных (по умолчанию Qt\+::\+Display\+Role). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Данные заголовка или пустой QVariant. 
+\end{DoxyReturn}
+\Hypertarget{class_reg_window_acdcd9136185b783ff9758c22d8220d2e}\index{RegWindow@{RegWindow}!index@{index}}
+\index{index@{index}!RegWindow@{RegWindow}}
+\doxysubsubsection{\texorpdfstring{index()}{index()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_reg_window_acdcd9136185b783ff9758c22d8220d2e} 
+QModel\+Index Reg\+Window\+::index (\begin{DoxyParamCaption}\item[{int}]{row}{, }\item[{int}]{column}{, }\item[{const QModel\+Index \&}]{parent}{ = {\ttfamily QModelIndex()}}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}}
+
+
+
+Получает индекс дочернего элемента по строке и столбцу. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em row} & Строка. \\
+\hline
+{\em column} & Столбец. \\
+\hline
+{\em parent} & Родительский индекс. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Индекс дочернего элемента. 
+\end{DoxyReturn}
+\Hypertarget{class_reg_window_acdcd9136185b783ff9758c22d8220d2e}\index{RegWindow@{RegWindow}!index@{index}}
+\index{index@{index}!RegWindow@{RegWindow}}
+\doxysubsubsection{\texorpdfstring{index()}{index()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_reg_window_acdcd9136185b783ff9758c22d8220d2e} 
+QModel\+Index Reg\+Window\+::index (\begin{DoxyParamCaption}\item[{int}]{row}{, }\item[{int}]{column}{, }\item[{const QModel\+Index \&}]{parent}{ = {\ttfamily QModelIndex()}}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}}
+
+
+
+Возвращает индекс элемента модели по строке и столбцу. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em row} & Номер строки. \\
+\hline
+{\em column} & Номер столбца. \\
+\hline
+{\em parent} & Родительский индекс (по умолчанию пустой). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Индекс элемента или недопустимый индекс. 
+\end{DoxyReturn}
+\Hypertarget{class_reg_window_a88bf180852e2747baece84e543dd017e}\index{RegWindow@{RegWindow}!parent@{parent}}
+\index{parent@{parent}!RegWindow@{RegWindow}}
+\doxysubsubsection{\texorpdfstring{parent()}{parent()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_reg_window_a88bf180852e2747baece84e543dd017e} 
+QModel\+Index Reg\+Window\+::parent (\begin{DoxyParamCaption}\item[{const QModel\+Index \&}]{index}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}}
+
+
+
+Получает родительский индекс элемента. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & Индекс элемента. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Родительский индекс. 
+\end{DoxyReturn}
+\Hypertarget{class_reg_window_a88bf180852e2747baece84e543dd017e}\index{RegWindow@{RegWindow}!parent@{parent}}
+\index{parent@{parent}!RegWindow@{RegWindow}}
+\doxysubsubsection{\texorpdfstring{parent()}{parent()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_reg_window_a88bf180852e2747baece84e543dd017e} 
+QModel\+Index Reg\+Window\+::parent (\begin{DoxyParamCaption}\item[{const QModel\+Index \&}]{index}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}}
+
+
+
+Возвращает индекс родительского элемента. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & Индекс дочернего элемента. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Индекс родителя или недопустимый индекс. 
+\end{DoxyReturn}
+\Hypertarget{class_reg_window_af8a7c4893ed948028ce1a2b64021dcab}\index{RegWindow@{RegWindow}!rowCount@{rowCount}}
+\index{rowCount@{rowCount}!RegWindow@{RegWindow}}
+\doxysubsubsection{\texorpdfstring{rowCount()}{rowCount()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_reg_window_af8a7c4893ed948028ce1a2b64021dcab} 
+int Reg\+Window\+::row\+Count (\begin{DoxyParamCaption}\item[{const QModel\+Index \&}]{parent}{ = {\ttfamily QModelIndex()}}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}}
+
+
+
+Возвращает количество строк. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em parent} & Родительский индекс. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Количество строк. 
+\end{DoxyReturn}
+\Hypertarget{class_reg_window_af8a7c4893ed948028ce1a2b64021dcab}\index{RegWindow@{RegWindow}!rowCount@{rowCount}}
+\index{rowCount@{rowCount}!RegWindow@{RegWindow}}
+\doxysubsubsection{\texorpdfstring{rowCount()}{rowCount()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_reg_window_af8a7c4893ed948028ce1a2b64021dcab} 
+int Reg\+Window\+::row\+Count (\begin{DoxyParamCaption}\item[{const QModel\+Index \&}]{parent}{ = {\ttfamily QModelIndex()}}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}}
+
+
+
+Возвращает количество строк в указанном родительском элементе. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em parent} & Родительский индекс (по умолчанию пустой). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Количество строк. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{regwindow_8cpp}{regwindow.\+cpp}}\item 
+\mbox{\hyperlink{regwindow_8h}{regwindow.\+h}}\end{DoxyCompactItemize}

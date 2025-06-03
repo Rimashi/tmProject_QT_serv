@@ -1,0 +1,37 @@
+\doxysection{viewwindow.\+h}
+\hypertarget{viewwindow_8h_source}{}\label{viewwindow_8h_source}\mbox{\hyperlink{viewwindow_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ VIEWWINDOW\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ VIEWWINDOW\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <QWidget>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <QTableWidget>}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_ui}{Ui}}\ \{}
+\DoxyCodeLine{00008\ \ \ \ \ \textcolor{keyword}{class\ }ViewWindow;\ \ }
+\DoxyCodeLine{00009\ \}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_test_result}{TestResult}}\ \{}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_test_result_a35b0f3c748848028384d9ee884bf1cee}{testNumber}};\ \ }
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_test_result_a8898c13a74cd95cada33e0875a3edffc}{score}};\ \ \ \ \ \ \ }
+\DoxyCodeLine{00017\ \};}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00023\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_view_window_a6a50ff7682c6a5286212470306fbb72d}{ViewWindow}}\ :\ \textcolor{keyword}{public}\ QWidget}
+\DoxyCodeLine{00024\ \{}
+\DoxyCodeLine{00025\ \ \ \ \ Q\_OBJECT}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{class_view_window_a6a50ff7682c6a5286212470306fbb72d}{ViewWindow}}(QWidget\ *parent\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00037\ \ \ \ \ \mbox{\hyperlink{class_view_window_a65bccd157aa22ab8ea5de62a5a5bcf12}{\string~ViewWindow}}();}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_view_window_a4f951a6d5b45a2fde1e4819ea40b977d}{setTestResults}}(\textcolor{keyword}{const}\ QVector<TestResult>\ \&results);}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00046\ \ \ \ \ Ui::ViewWindow\ *ui;\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00047\ \ \ \ \ QTableWidget\ *tableWidget;\ }
+\DoxyCodeLine{00048\ \};}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ VIEWWINDOW\_H}}
+
+\end{DoxyCode}

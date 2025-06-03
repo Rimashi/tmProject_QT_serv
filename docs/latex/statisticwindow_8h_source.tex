@@ -1,0 +1,37 @@
+\doxysection{statisticwindow.\+h}
+\hypertarget{statisticwindow_8h_source}{}\label{statisticwindow_8h_source}\mbox{\hyperlink{statisticwindow_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ STATISTICWINDOW\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ STATISTICWINDOW\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <QWidget>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <QVBoxLayout>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <QLineEdit>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <QPushButton>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <QLabel>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <QTableWidget>}\ \textcolor{comment}{//\ Добавлено\ для\ указателя\ на\ таблицу}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_ui}{Ui}}\ \{}
+\DoxyCodeLine{00012\ \textcolor{keyword}{class\ }StatisticWindow;}
+\DoxyCodeLine{00013\ \}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00020\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_statistic_window_a69493bba3ec5f7a48a812230ee0cb272}{StatisticWindow}}\ :\ \textcolor{keyword}{public}\ QWidget}
+\DoxyCodeLine{00021\ \{}
+\DoxyCodeLine{00022\ \ \ \ \ Q\_OBJECT}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{class_statistic_window_a69493bba3ec5f7a48a812230ee0cb272}{StatisticWindow}}(QWidget\ *parent\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00034\ \ \ \ \ \mbox{\hyperlink{class_statistic_window_a0217ab30b46ebeb76408b9185e7f6b12}{\string~StatisticWindow}}();}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \textcolor{keyword}{private}\ slots:}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordtype}{void}\ goMainStat();}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00043\ \ \ \ \ Ui::StatisticWindow\ *ui;\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00044\ \ \ \ \ QTableWidget\ *statisticTable;\ \ \ }
+\DoxyCodeLine{00045\ \};}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ STATISTICWINDOW\_H}}
+
+\end{DoxyCode}
