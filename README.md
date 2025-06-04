@@ -1,1 +1,0 @@
-# tmProject_QT_serv

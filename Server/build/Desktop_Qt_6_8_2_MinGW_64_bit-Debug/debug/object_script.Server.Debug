@@ -1,0 +1,10 @@
+debug/main.o
+debug/aes.o
+debug/database.o
+debug/func2serv.o
+debug/rsa.o
+debug/server_api.o
+debug/sha384.o
+debug/moc_database.o
+debug/moc_func2serv.o
+debug/moc_server_api.o
