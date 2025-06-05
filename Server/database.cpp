@@ -4,6 +4,7 @@
 #include <QSqlError>
 #include <QDebug>
 #include <QJsonObject>
+#include <QJsonArray>
 #include "sha384.h"
 
 Database::Database(QObject *parent) : QObject(parent) {
@@ -42,10 +43,30 @@ bool Database::open(const QString& path) {
         "role TEXT DEFAULT 'student'"
         ");"
         );
+
+    // Создаем таблицу для результатов тестов
+    success = query.exec(
+        "CREATE TABLE IF NOT EXISTS test_results ("
+        "id INTEGER PRIMARY KEY AUTOINCREMENT,"
+        "login TEXT NOT NULL,"         // Логин студента
+        "test_number INTEGER NOT NULL,"     // Номер теста (1, 2, ...)
+        "score INTEGER NOT NULL,"           // Результат в процентах (0-100)
+        "date DATETIME DEFAULT CURRENT_TIMESTAMP," // Дата прохождения
+        "FOREIGN KEY(login) REFERENCES users(login) ON DELETE CASCADE"
+        ");"
+        );
+
     if (!success) {
         qCritical() << "Database: Ошибка создания таблицы users:" << query.lastError().text();
         return false;
     }
+
+    // Создаем индекс для ускорения выборки по пользователю
+    success = query.exec("CREATE INDEX IF NOT EXISTS idx_test_results_login ON test_results(login)");
+    if (!success) {
+        qWarning() << "Database: Ошибка создания индекса:" << query.lastError().text();
+    }
+
     return true;
 }
 
@@ -90,9 +111,9 @@ bool Database::validateUser(const QString& login, const QString& passwordHash, Q
         return false;
     }
     if (query.next()) {
-        userData["id"] = query.value("id").toInt();
-        userData["lastName"] = query.value("surname").toString();
-        userData["firstName"] = query.value("name").toString();
+        // userData["login"] = query.value("login").toString();
+        userData["surname"] = query.value("surname").toString();
+        userData["name"] = query.value("name").toString();
         userData["role"] = query.value("role").toString();
         return true;
     }
@@ -115,6 +136,133 @@ void Database::initializeAdmin() {
             qCritical() << "Database: Ошибка создания админа:" << query.lastError().text();
         }
     }
+}
+
+bool Database::saveTestResult(const QString& login, int testNumber, int score) {
+    QSqlQuery query(m_db);
+    query.prepare("INSERT INTO test_results (login, test_number, score) VALUES (?, ?, ?)");
+    query.addBindValue(login);
+    query.addBindValue(testNumber);
+    query.addBindValue(score);
+
+    if (!query.exec()) {
+        m_lastError = query.lastError().text();
+        qWarning() << "Database: Ошибка сохранения результата теста:" << m_lastError;
+        return false;
+    }
+    return true;
+}
+
+QJsonObject Database::getStudentStatistics(const QString& login) {
+    QJsonObject result;
+
+    // Получаем ФИО студента
+    QSqlQuery userQuery(m_db);
+    userQuery.prepare("SELECT surname, name FROM users WHERE login = ?");
+    userQuery.addBindValue(login);
+
+    if (!userQuery.exec() || !userQuery.next()) {
+        m_lastError = userQuery.lastError().text();
+        qWarning() << "Database: Ошибка получения данных студента:" << m_lastError;
+        return result;
+    }
+
+    QString surname = userQuery.value("surname").toString();
+    QString name = userQuery.value("name").toString();
+
+    // Получаем статистику тестов
+    QSqlQuery statsQuery(m_db);
+    statsQuery.prepare(
+        "SELECT test_number, score, strftime('%Y-%m-%dT%H:%M:%S', date) AS date_iso "
+        "FROM test_results "
+        "WHERE login = ? "
+        "ORDER BY date DESC" // Сортировка от новых к старым
+        );
+    statsQuery.addBindValue(login);
+
+    QJsonArray statistics;
+    if (statsQuery.exec()) {
+        while (statsQuery.next()) {
+            QJsonObject testResult;
+            testResult["test_number"] = statsQuery.value("test_number").toString();
+            testResult["score"] = statsQuery.value("score").toString() + "%";
+            testResult["date"] = statsQuery.value("date_iso").toString();
+
+            statistics.append(testResult);
+        }
+    } else {
+        qWarning() << "Database: Ошибка получения статистики:" << statsQuery.lastError().text();
+    }
+
+    // Формируем итоговый объект
+    result["surname"] = surname;
+    result["name"] = name;
+    result["statistics"] = statistics;
+
+    return result;
+}
+
+QJsonObject Database::getStudents() {
+    QJsonObject result;
+    QSqlQuery query(m_db);
+
+    query.prepare("SELECT login, name, surname FROM users WHERE role != 'admin' ORDER BY surname, name");
+
+    if (!query.exec()) {
+        m_lastError = query.lastError().text();
+        qWarning() << "Database: Ошибка получения списка студентов:" << m_lastError;
+        result["users"] = QJsonArray(); // Возвращаем пустой массив при ошибке
+        return result;
+    }
+
+    QJsonArray usersArray;
+    while (query.next()) {
+        QJsonObject user;
+        user["login"] = query.value("login").toString();
+        user["name"] = query.value("name").toString();
+        user["surname"] = query.value("surname").toString();
+        usersArray.append(user);
+    }
+
+    result["users"] = usersArray;
+    return result;
+}
+
+QJsonObject Database::getTestStatistics() {
+    QJsonObject result;
+    QSqlQuery query(m_db);
+
+    // Запрос объединяет таблицы пользователей и результатов тестов
+    query.prepare(
+        "SELECT u.surname, u.name, tr.test_number, tr.score, "
+        "strftime('%Y-%m-%dT%H:%M:%S', tr.date) AS date_iso "
+        "FROM test_results tr "
+        "JOIN users u ON tr.login = u.login "
+        "WHERE u.role != 'admin' "
+        "ORDER BY tr.date DESC"
+        );
+
+    if (!query.exec()) {
+        m_lastError = query.lastError().text();
+        qWarning() << "Database: Ошибка получения статистики тестов:" << m_lastError;
+        result["statistics"] = QJsonArray();
+        return result;
+    }
+
+    QJsonArray statisticsArray;
+    while (query.next()) {
+        QJsonObject testEntry;
+        testEntry["surname"] = query.value("surname").toString();
+        testEntry["name"] = query.value("name").toString();
+        testEntry["test_number"] = query.value("test_number").toString();
+        testEntry["score"] = query.value("score").toString() + "%";
+        testEntry["date"] = query.value("date_iso").toString();
+
+        statisticsArray.append(testEntry);
+    }
+
+    result["statistics"] = statisticsArray;
+    return result;
 }
 
 QString Database::lastError() const {

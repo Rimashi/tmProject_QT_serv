@@ -57,6 +57,7 @@ void Server_api::incomingConnection(qintptr socketDescriptor) {
 
     qDebug() << "Client connected from" << socket->peerAddress().toString();
 
+
     connect(socket, &QTcpSocket::readyRead, [this, socket]() {
         QByteArray data = socket->readAll();
         qDebug() << "Received data:" << data;
@@ -116,6 +117,29 @@ void Server_api::incomingConnection(qintptr socketDescriptor) {
                     } else if (action == "login") {
                         qDebug() << "trying to login";
                         response = func2Serv->handleLogin(dataForHandler);
+                    } else if (action == "get_statistics_student"){
+                        qDebug() << dataForHandler["login"];
+                        response = func2Serv->get_user_statistic(dataForHandler);
+                    } else if (action == "get_test1"){
+                        qDebug() << "Generating test1 task";
+                        response = func2Serv->generateTest1Task(dataForHandler);
+                    } else if (action == "send_test1"){
+                        qDebug() << dataForHandler["answer"];
+                        qDebug() << "Processing test1 submission tralalelo";
+                        response = func2Serv->checkTest1(dataForHandler);
+                    } else if (action == "get_test2"){
+                        response = func2Serv->generateTest2Task(dataForHandler);
+                    } else if (action == "send_test2"){
+                        response = func2Serv->checkTest2(dataForHandler);
+                    } else if (action == "get_users_admin"){
+                        qDebug() << "try...to send";
+                        response = func2Serv->get_users_admin();
+                    } else if (action == "get_statistics_admin"){
+                        qDebug() << "try...to send";
+                        response = func2Serv->get_statistics_admin();
+                    } else if (action == "get_user_info"){
+                        qDebug() << "try...to send";
+                        response = func2Serv->get_user_info(dataForHandler);
                     } else {
                         response["action"] = "error";
                         response["message"] = "Unknown action";

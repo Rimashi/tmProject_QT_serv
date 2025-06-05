@@ -19,9 +19,12 @@ public:
 
     bool userExists(const QString& login);
     bool registerUser(const QString& login, const QString& passwordHash, const QString& name, const QString& surname);
-    bool validateUser(const QString& login, const QString& passwordHash, QJsonObject &userData); // добавим
-
+    bool validateUser(const QString& login, const QString& passwordHash, QJsonObject &userData);
     void initializeAdmin();
+    bool saveTestResult(const QString& login, int testNumber, int score);
+    QJsonObject getStudentStatistics(const QString& login);
+    QJsonObject getStudents();
+    QJsonObject getTestStatistics();
 
     QString lastError() const;
 
