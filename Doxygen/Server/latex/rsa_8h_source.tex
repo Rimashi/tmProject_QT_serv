@@ -1,0 +1,39 @@
+\doxysection{rsa.\+h}
+\hypertarget{rsa_8h_source}{}\label{rsa_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ RSA\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ RSA\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <QString>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <QByteArray>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <gmpxx.h>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <QDebug>}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00016\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_r_s_a}{RSA}}\ \{}
+\DoxyCodeLine{00017\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_r_s_a_1_1_key_pair}{KeyPair}}\ \{}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ QString\ \mbox{\hyperlink{struct_r_s_a_1_1_key_pair_a9d5b6a66e6ae3b78ab174cff9fe570fd}{publicKey}};\ \ \ }
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ QString\ \mbox{\hyperlink{struct_r_s_a_1_1_key_pair_a16d5a39750a16ce4e597f0aa6a2a1021}{privateKey}};\ \ }
+\DoxyCodeLine{00024\ \ \ \ \ \};}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{struct_r_s_a_1_1_key_pair}{KeyPair}}\ \mbox{\hyperlink{class_r_s_a_a9acc51533a537537a7a234f2610ed4a9}{generateKeys}}(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ bits);}
+\DoxyCodeLine{00033\ \ \ \ \ }
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keyword}{static}\ QString\ \mbox{\hyperlink{class_r_s_a_adedf9aecc5bfd4b2f9010168a94695e3}{encrypt}}(\textcolor{keyword}{const}\ QString\&\ data,\ \textcolor{keyword}{const}\ QString\&\ publicKey);}
+\DoxyCodeLine{00041\ \ \ \ \ }
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keyword}{static}\ QString\ \mbox{\hyperlink{class_r_s_a_a453618c9fddef9cc7baac20cb7ebd369}{decrypt}}(\textcolor{keyword}{const}\ QString\&\ encrypted,\ \textcolor{keyword}{const}\ QString\&\ privateKey);}
+\DoxyCodeLine{00049\ \ \ \ \ }
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keyword}{static}\ QByteArray\ \mbox{\hyperlink{class_r_s_a_a00430f4186d3fc9441d178c63fd4dbb8}{encryptBytes}}(\textcolor{keyword}{const}\ QByteArray\&\ data,\ \textcolor{keyword}{const}\ QString\&\ publicKey);}
+\DoxyCodeLine{00058\ \ \ \ \ }
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keyword}{static}\ QByteArray\ \mbox{\hyperlink{class_r_s_a_a73c2f60c4a4994938b9a21800dc7ca71}{decryptBytes}}(\textcolor{keyword}{const}\ QByteArray\&\ encrypted,\ \textcolor{keyword}{const}\ QString\&\ privateKey);}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ isPrime(\textcolor{keyword}{const}\ mpz\_class\&\ n,\ \textcolor{keywordtype}{int}\ k\ =\ 25);}
+\DoxyCodeLine{00075\ \ \ \ \ }
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keyword}{static}\ mpz\_class\ modInverse(\textcolor{keyword}{const}\ mpz\_class\&\ e,\ \textcolor{keyword}{const}\ mpz\_class\&\ phi);}
+\DoxyCodeLine{00083\ \ \ \ \ }
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ generatePrime(mpz\_class\&\ result,\ gmp\_randclass\&\ randGen,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ bits);}
+\DoxyCodeLine{00092\ \};}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ RSA\_H}}
+
+\end{DoxyCode}

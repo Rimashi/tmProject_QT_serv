@@ -1,0 +1,46 @@
+\doxysection{aes.\+h}
+\hypertarget{aes_8h_source}{}\label{aes_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ AES\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ AES\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <QByteArray>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <QString>}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_a_e_s}{AES}}\ \{}
+\DoxyCodeLine{00016\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keyword}{static}\ QByteArray\ \mbox{\hyperlink{class_a_e_s_a26a87d6223e0709b414afe11d4b9d65b}{generateKey}}();}
+\DoxyCodeLine{00022\ \ \ \ \ }
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keyword}{static}\ QByteArray\ \mbox{\hyperlink{class_a_e_s_a323905ceff567834a51319699fc21445}{encrypt}}(\textcolor{keyword}{const}\ QByteArray\&\ data,\ \textcolor{keyword}{const}\ QByteArray\&\ key);}
+\DoxyCodeLine{00031\ \ \ \ \ }
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keyword}{static}\ QByteArray\ \mbox{\hyperlink{class_a_e_s_af0da64cad523d71fb74f7d6a7e6e6856}{decrypt}}(\textcolor{keyword}{const}\ QByteArray\&\ data,\ \textcolor{keyword}{const}\ QByteArray\&\ key);}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ uint8\_t\ sbox[256];}
+\DoxyCodeLine{00044\ \ \ \ \ }
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ uint8\_t\ invSbox[256];}
+\DoxyCodeLine{00047\ \ \ \ \ }
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ uint8\_t\ rcon[10];}
+\DoxyCodeLine{00050\ \ \ \ \ }
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ subBytes(QByteArray\&\ state);}
+\DoxyCodeLine{00056\ \ \ \ \ }
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ shiftRows(QByteArray\&\ state);}
+\DoxyCodeLine{00062\ \ \ \ \ }
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ mixColumns(QByteArray\&\ state);}
+\DoxyCodeLine{00068\ \ \ \ \ }
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ addRoundKey(QByteArray\&\ state,\ \textcolor{keyword}{const}\ QByteArray\&\ roundKey);}
+\DoxyCodeLine{00075\ \ \ \ \ }
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ invSubBytes(QByteArray\&\ state);}
+\DoxyCodeLine{00081\ \ \ \ \ }
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ invShiftRows(QByteArray\&\ state);}
+\DoxyCodeLine{00087\ \ \ \ \ }
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ invMixColumns(QByteArray\&\ state);}
+\DoxyCodeLine{00093\ \ \ \ \ }
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keyword}{static}\ QByteArray\ expandKey(\textcolor{keyword}{const}\ QByteArray\&\ key);}
+\DoxyCodeLine{00100\ \ \ \ \ }
+\DoxyCodeLine{00107\ \ \ \ \ \textcolor{keyword}{static}\ uint8\_t\ gmul(uint8\_t\ a,\ uint8\_t\ b);}
+\DoxyCodeLine{00108\ \};}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00110\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ AES\_H}}
+
+\end{DoxyCode}

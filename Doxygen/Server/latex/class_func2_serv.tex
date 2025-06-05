@@ -1,0 +1,345 @@
+\doxysection{Func2\+Serv Class Reference}
+\hypertarget{class_func2_serv}{}\label{class_func2_serv}\index{Func2Serv@{Func2Serv}}
+Inheritance diagram for Func2\+Serv\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_func2_serv}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_func2_serv_ae5f7ea5e8fd4ec68c7845bad901a6932}{Func2\+Serv}} (\mbox{\hyperlink{class_server__api}{Server\+\_\+api}} \texorpdfstring{$\ast$}{*}server\+Api, QObject \texorpdfstring{$\ast$}{*}parent=nullptr)
+\begin{DoxyCompactList}\small\item\em Конструктор класса \doxylink{class_func2_serv}{Func2\+Serv}. \end{DoxyCompactList}\item 
+QJson\+Object \mbox{\hyperlink{class_func2_serv_af69fa5a3ca3914dd0333298c539055a3}{handle\+Registration}} (const QJson\+Object \&data)
+\begin{DoxyCompactList}\small\item\em Обрабатывает регистрацию нового пользователя. \end{DoxyCompactList}\item 
+QJson\+Object \mbox{\hyperlink{class_func2_serv_af853f9693fd3acbaaf80a85ffe843381}{handle\+Login}} (const QJson\+Object \&data)
+\begin{DoxyCompactList}\small\item\em Обрабатывает вход пользователя. \end{DoxyCompactList}\item 
+QJson\+Object \mbox{\hyperlink{class_func2_serv_aa2a0e5ab8ec40825d5320218913bd3b9}{handle\+Public\+Key}} (const QJson\+Object \&data, QTcp\+Socket \texorpdfstring{$\ast$}{*}socket)
+\begin{DoxyCompactList}\small\item\em Обрабатывает обмен публичными ключами и возвращает зашифрованный AES-\/ключ. \end{DoxyCompactList}\item 
+QJson\+Object \mbox{\hyperlink{class_func2_serv_afa3f6b84db02a65a1cdac3a61d03f15c}{get\+\_\+user\+\_\+statistic}} (const QJson\+Object \&data)
+\begin{DoxyCompactList}\small\item\em Возвращает статистику пользователя-\/студента. \end{DoxyCompactList}\item 
+QJson\+Object \mbox{\hyperlink{class_func2_serv_abc6bcff3979d87538408380feb611d0c}{get\+\_\+users\+\_\+admin}} ()
+\begin{DoxyCompactList}\small\item\em Возвращает список всех студентов (для администратора). \end{DoxyCompactList}\item 
+QJson\+Object \mbox{\hyperlink{class_func2_serv_af51887647f0c51468444255615aec5c4}{get\+\_\+statistics\+\_\+admin}} ()
+\begin{DoxyCompactList}\small\item\em Возвращает статистику по всем тестам (для администратора). \end{DoxyCompactList}\item 
+QJson\+Object \mbox{\hyperlink{class_func2_serv_aa6b2ebd967fff0c412912e79b67ac75b}{get\+\_\+user\+\_\+info}} (const QJson\+Object \&data)
+\begin{DoxyCompactList}\small\item\em Возвращает полную информацию о студенте. \end{DoxyCompactList}\item 
+QJson\+Object \mbox{\hyperlink{class_func2_serv_a039ed36e3717958ebdbb9b6fbc78845c}{check\+Test1}} (const QJson\+Object \&data)
+\begin{DoxyCompactList}\small\item\em Проверяет решение теста №1, сравнивая ответ пользователя с корнем, найденным методом хорд. \end{DoxyCompactList}\item 
+QString \mbox{\hyperlink{class_func2_serv_ae9fd18c7bcefac8aecbd3b044d09a296}{generate\+Random\+Equation}} ()
+\begin{DoxyCompactList}\small\item\em Генерирует случайное квадратное уравнение вида f(x) = ax² ± bx ± c. \end{DoxyCompactList}\item 
+QJson\+Object \mbox{\hyperlink{class_func2_serv_a4ddc3515f0c4b00e814540279df1d132}{generate\+Test1\+Task}} (const QJson\+Object \&data)
+\begin{DoxyCompactList}\small\item\em Генерирует задание для теста №1 (метод хорд). \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_func2_serv_a937c225b9d0f9f319dca7569d3a18a6f}{solve\+Chord\+From\+String}} (const QString \&eqn, double eps)
+\begin{DoxyCompactList}\small\item\em Решает квадратное уравнение методом хорд по заданной строке. \end{DoxyCompactList}\item 
+QString \mbox{\hyperlink{class_func2_serv_a11af1509c230bfb3e4b34b013ebf0695}{generate\+Random\+Bit\+String}} (int length)
+\begin{DoxyCompactList}\small\item\em Генерирует случайную битовую строку заданной длины. \end{DoxyCompactList}\item 
+QJson\+Object \mbox{\hyperlink{class_func2_serv_a2daca48a3a0f7cddef70f9048ddc65a3}{generate\+Test2\+Task}} (const QJson\+Object \&data)
+\begin{DoxyCompactList}\small\item\em Генерирует задание для теста 2 — LSB-\/стеганография. \end{DoxyCompactList}\item 
+QJson\+Object \mbox{\hyperlink{class_func2_serv_a6c0c08f3fb058bb889f6f5a03a97c5d7}{check\+Test2}} (const QJson\+Object \&data)
+\begin{DoxyCompactList}\small\item\em Проверяет результат выполнения теста 2 (LSB-\/стеганография). \end{DoxyCompactList}\item 
+QString \mbox{\hyperlink{class_func2_serv_a13b4d421479a5d5565f50c45967e85f9}{extract\+Bits\+From\+Image}} (const QImage \&image, int bit\+Count)
+\begin{DoxyCompactList}\small\item\em Извлекает битовую строку из изображения методом LSB. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-constructors}
+\Hypertarget{class_func2_serv_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_func2_serv_ae5f7ea5e8fd4ec68c7845bad901a6932}\index{Func2Serv@{Func2Serv}!Func2Serv@{Func2Serv}}
+\index{Func2Serv@{Func2Serv}!Func2Serv@{Func2Serv}}
+\doxysubsubsection{\texorpdfstring{Func2Serv()}{Func2Serv()}}
+{\footnotesize\ttfamily \label{class_func2_serv_ae5f7ea5e8fd4ec68c7845bad901a6932} 
+Func2\+Serv\+::\+Func2\+Serv (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_server__api}{Server\+\_\+api}} \texorpdfstring{$\ast$}{*}}]{server\+Api}{, }\item[{QObject \texorpdfstring{$\ast$}{*}}]{parent}{ = {\ttfamily nullptr}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Конструктор класса \doxylink{class_func2_serv}{Func2\+Serv}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em server\+Api} & Указатель на объект \doxylink{class_server__api}{Server\+\_\+api} для доступа к API сервера. \\
+\hline
+{\em parent} & Родительский QObject.\\
+\hline
+\end{DoxyParams}
+Инициализирует соединение с базой данных и вызывает инициализацию администратора. 
+
+\label{doc-func-members}
+\Hypertarget{class_func2_serv_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_func2_serv_a039ed36e3717958ebdbb9b6fbc78845c}\index{Func2Serv@{Func2Serv}!checkTest1@{checkTest1}}
+\index{checkTest1@{checkTest1}!Func2Serv@{Func2Serv}}
+\doxysubsubsection{\texorpdfstring{checkTest1()}{checkTest1()}}
+{\footnotesize\ttfamily \label{class_func2_serv_a039ed36e3717958ebdbb9b6fbc78845c} 
+QJson\+Object Func2\+Serv\+::check\+Test1 (\begin{DoxyParamCaption}\item[{const QJson\+Object \&}]{data}{}\end{DoxyParamCaption})}
+
+
+
+Проверяет решение теста №1, сравнивая ответ пользователя с корнем, найденным методом хорд. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & JSON-\/объект с полями login, task, answer. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+JSON-\/ответ с результатом проверки. 
+\end{DoxyReturn}
+\Hypertarget{class_func2_serv_a6c0c08f3fb058bb889f6f5a03a97c5d7}\index{Func2Serv@{Func2Serv}!checkTest2@{checkTest2}}
+\index{checkTest2@{checkTest2}!Func2Serv@{Func2Serv}}
+\doxysubsubsection{\texorpdfstring{checkTest2()}{checkTest2()}}
+{\footnotesize\ttfamily \label{class_func2_serv_a6c0c08f3fb058bb889f6f5a03a97c5d7} 
+QJson\+Object Func2\+Serv\+::check\+Test2 (\begin{DoxyParamCaption}\item[{const QJson\+Object \&}]{data}{}\end{DoxyParamCaption})}
+
+
+
+Проверяет результат выполнения теста 2 (LSB-\/стеганография). 
+
+Сравнивает переданную битовую строку с извлечённой из изображения и сохраняет результат в БД.
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & JSON-\/объект от клиента, содержащий логин, оригинальную строку и изображение в base64. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+JSON-\/ответ с полем success и процентом совпадения. 
+\end{DoxyReturn}
+\Hypertarget{class_func2_serv_a13b4d421479a5d5565f50c45967e85f9}\index{Func2Serv@{Func2Serv}!extractBitsFromImage@{extractBitsFromImage}}
+\index{extractBitsFromImage@{extractBitsFromImage}!Func2Serv@{Func2Serv}}
+\doxysubsubsection{\texorpdfstring{extractBitsFromImage()}{extractBitsFromImage()}}
+{\footnotesize\ttfamily \label{class_func2_serv_a13b4d421479a5d5565f50c45967e85f9} 
+QString Func2\+Serv\+::extract\+Bits\+From\+Image (\begin{DoxyParamCaption}\item[{const QImage \&}]{image}{, }\item[{int}]{bit\+Count}{}\end{DoxyParamCaption})}
+
+
+
+Извлекает битовую строку из изображения методом LSB. 
+
+Из каждого пикселя берёт младший бит каждого цветового канала (R, G, B) по порядку, пока не будет извлечено указанное количество бит.
+
+
+\begin{DoxyParams}{Parameters}
+{\em image} & Изображение формата QImage, из которого извлекаются данные. \\
+\hline
+{\em bit\+Count} & Количество бит, которое нужно извлечь. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Извлечённая строка, содержащая символы \textquotesingle{}0\textquotesingle{} и \textquotesingle{}1\textquotesingle{}. 
+\end{DoxyReturn}
+\Hypertarget{class_func2_serv_a11af1509c230bfb3e4b34b013ebf0695}\index{Func2Serv@{Func2Serv}!generateRandomBitString@{generateRandomBitString}}
+\index{generateRandomBitString@{generateRandomBitString}!Func2Serv@{Func2Serv}}
+\doxysubsubsection{\texorpdfstring{generateRandomBitString()}{generateRandomBitString()}}
+{\footnotesize\ttfamily \label{class_func2_serv_a11af1509c230bfb3e4b34b013ebf0695} 
+QString Func2\+Serv\+::generate\+Random\+Bit\+String (\begin{DoxyParamCaption}\item[{int}]{length}{}\end{DoxyParamCaption})}
+
+
+
+Генерирует случайную битовую строку заданной длины. 
+
+Используется для задания, которое необходимо внедрить в изображение с помощью стеганографии.
+
+
+\begin{DoxyParams}{Parameters}
+{\em length} & Длина битовой строки. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Случайная строка, содержащая только символы \textquotesingle{}0\textquotesingle{} и \textquotesingle{}1\textquotesingle{}. 
+\end{DoxyReturn}
+\Hypertarget{class_func2_serv_ae9fd18c7bcefac8aecbd3b044d09a296}\index{Func2Serv@{Func2Serv}!generateRandomEquation@{generateRandomEquation}}
+\index{generateRandomEquation@{generateRandomEquation}!Func2Serv@{Func2Serv}}
+\doxysubsubsection{\texorpdfstring{generateRandomEquation()}{generateRandomEquation()}}
+{\footnotesize\ttfamily \label{class_func2_serv_ae9fd18c7bcefac8aecbd3b044d09a296} 
+QString Func2\+Serv\+::generate\+Random\+Equation (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Генерирует случайное квадратное уравнение вида f(x) = ax² ± bx ± c. 
+
+\begin{DoxyReturn}{Returns}
+Строка с уравнением. 
+\end{DoxyReturn}
+\Hypertarget{class_func2_serv_a4ddc3515f0c4b00e814540279df1d132}\index{Func2Serv@{Func2Serv}!generateTest1Task@{generateTest1Task}}
+\index{generateTest1Task@{generateTest1Task}!Func2Serv@{Func2Serv}}
+\doxysubsubsection{\texorpdfstring{generateTest1Task()}{generateTest1Task()}}
+{\footnotesize\ttfamily \label{class_func2_serv_a4ddc3515f0c4b00e814540279df1d132} 
+QJson\+Object Func2\+Serv\+::generate\+Test1\+Task (\begin{DoxyParamCaption}\item[{const QJson\+Object \&}]{data}{}\end{DoxyParamCaption})}
+
+
+
+Генерирует задание для теста №1 (метод хорд). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & Не используется. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+JSON-\/объект с текстом задания. 
+\end{DoxyReturn}
+\Hypertarget{class_func2_serv_a2daca48a3a0f7cddef70f9048ddc65a3}\index{Func2Serv@{Func2Serv}!generateTest2Task@{generateTest2Task}}
+\index{generateTest2Task@{generateTest2Task}!Func2Serv@{Func2Serv}}
+\doxysubsubsection{\texorpdfstring{generateTest2Task()}{generateTest2Task()}}
+{\footnotesize\ttfamily \label{class_func2_serv_a2daca48a3a0f7cddef70f9048ddc65a3} 
+QJson\+Object Func2\+Serv\+::generate\+Test2\+Task (\begin{DoxyParamCaption}\item[{const QJson\+Object \&}]{data}{}\end{DoxyParamCaption})}
+
+
+
+Генерирует задание для теста 2 — LSB-\/стеганография. 
+
+Создаёт JSON-\/объект с случайной битовой строкой, которую необходимо внедрить в изображение.
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & Входной JSON от клиента (не используется). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+JSON с полем "{}task"{}, содержащим битовую строку. 
+\end{DoxyReturn}
+\Hypertarget{class_func2_serv_af51887647f0c51468444255615aec5c4}\index{Func2Serv@{Func2Serv}!get\_statistics\_admin@{get\_statistics\_admin}}
+\index{get\_statistics\_admin@{get\_statistics\_admin}!Func2Serv@{Func2Serv}}
+\doxysubsubsection{\texorpdfstring{get\_statistics\_admin()}{get\_statistics\_admin()}}
+{\footnotesize\ttfamily \label{class_func2_serv_af51887647f0c51468444255615aec5c4} 
+QJson\+Object Func2\+Serv\+::get\+\_\+statistics\+\_\+admin (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Возвращает статистику по всем тестам (для администратора). 
+
+\begin{DoxyReturn}{Returns}
+JSON-\/объект с общей статистикой. 
+\end{DoxyReturn}
+\Hypertarget{class_func2_serv_aa6b2ebd967fff0c412912e79b67ac75b}\index{Func2Serv@{Func2Serv}!get\_user\_info@{get\_user\_info}}
+\index{get\_user\_info@{get\_user\_info}!Func2Serv@{Func2Serv}}
+\doxysubsubsection{\texorpdfstring{get\_user\_info()}{get\_user\_info()}}
+{\footnotesize\ttfamily \label{class_func2_serv_aa6b2ebd967fff0c412912e79b67ac75b} 
+QJson\+Object Func2\+Serv\+::get\+\_\+user\+\_\+info (\begin{DoxyParamCaption}\item[{const QJson\+Object \&}]{data}{}\end{DoxyParamCaption})}
+
+
+
+Возвращает полную информацию о студенте. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & JSON-\/объект с логином. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+JSON-\/ответ с информацией о студенте. 
+\end{DoxyReturn}
+\Hypertarget{class_func2_serv_afa3f6b84db02a65a1cdac3a61d03f15c}\index{Func2Serv@{Func2Serv}!get\_user\_statistic@{get\_user\_statistic}}
+\index{get\_user\_statistic@{get\_user\_statistic}!Func2Serv@{Func2Serv}}
+\doxysubsubsection{\texorpdfstring{get\_user\_statistic()}{get\_user\_statistic()}}
+{\footnotesize\ttfamily \label{class_func2_serv_afa3f6b84db02a65a1cdac3a61d03f15c} 
+QJson\+Object Func2\+Serv\+::get\+\_\+user\+\_\+statistic (\begin{DoxyParamCaption}\item[{const QJson\+Object \&}]{data}{}\end{DoxyParamCaption})}
+
+
+
+Возвращает статистику пользователя-\/студента. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & JSON-\/объект с полем login. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+JSON-\/объект с действиями и статистикой. 
+\end{DoxyReturn}
+\Hypertarget{class_func2_serv_abc6bcff3979d87538408380feb611d0c}\index{Func2Serv@{Func2Serv}!get\_users\_admin@{get\_users\_admin}}
+\index{get\_users\_admin@{get\_users\_admin}!Func2Serv@{Func2Serv}}
+\doxysubsubsection{\texorpdfstring{get\_users\_admin()}{get\_users\_admin()}}
+{\footnotesize\ttfamily \label{class_func2_serv_abc6bcff3979d87538408380feb611d0c} 
+QJson\+Object Func2\+Serv\+::get\+\_\+users\+\_\+admin (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Возвращает список всех студентов (для администратора). 
+
+\begin{DoxyReturn}{Returns}
+JSON-\/объект с данными о студентах. 
+\end{DoxyReturn}
+\Hypertarget{class_func2_serv_af853f9693fd3acbaaf80a85ffe843381}\index{Func2Serv@{Func2Serv}!handleLogin@{handleLogin}}
+\index{handleLogin@{handleLogin}!Func2Serv@{Func2Serv}}
+\doxysubsubsection{\texorpdfstring{handleLogin()}{handleLogin()}}
+{\footnotesize\ttfamily \label{class_func2_serv_af853f9693fd3acbaaf80a85ffe843381} 
+QJson\+Object Func2\+Serv\+::handle\+Login (\begin{DoxyParamCaption}\item[{const QJson\+Object \&}]{data}{}\end{DoxyParamCaption})}
+
+
+
+Обрабатывает вход пользователя. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & JSON-\/объект с полями login и password. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+JSON-\/ответ с результатом входа и пользовательскими данными при успехе. 
+\end{DoxyReturn}
+\Hypertarget{class_func2_serv_aa2a0e5ab8ec40825d5320218913bd3b9}\index{Func2Serv@{Func2Serv}!handlePublicKey@{handlePublicKey}}
+\index{handlePublicKey@{handlePublicKey}!Func2Serv@{Func2Serv}}
+\doxysubsubsection{\texorpdfstring{handlePublicKey()}{handlePublicKey()}}
+{\footnotesize\ttfamily \label{class_func2_serv_aa2a0e5ab8ec40825d5320218913bd3b9} 
+QJson\+Object Func2\+Serv\+::handle\+Public\+Key (\begin{DoxyParamCaption}\item[{const QJson\+Object \&}]{data}{, }\item[{QTcp\+Socket \texorpdfstring{$\ast$}{*}}]{socket}{}\end{DoxyParamCaption})}
+
+
+
+Обрабатывает обмен публичными ключами и возвращает зашифрованный AES-\/ключ. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & JSON-\/объект с публичным RSA-\/ключом клиента. \\
+\hline
+{\em socket} & Указатель на сокет клиента. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+JSON-\/ответ с зашифрованным AES-\/ключом. 
+\end{DoxyReturn}
+\Hypertarget{class_func2_serv_af69fa5a3ca3914dd0333298c539055a3}\index{Func2Serv@{Func2Serv}!handleRegistration@{handleRegistration}}
+\index{handleRegistration@{handleRegistration}!Func2Serv@{Func2Serv}}
+\doxysubsubsection{\texorpdfstring{handleRegistration()}{handleRegistration()}}
+{\footnotesize\ttfamily \label{class_func2_serv_af69fa5a3ca3914dd0333298c539055a3} 
+QJson\+Object Func2\+Serv\+::handle\+Registration (\begin{DoxyParamCaption}\item[{const QJson\+Object \&}]{data}{}\end{DoxyParamCaption})}
+
+
+
+Обрабатывает регистрацию нового пользователя. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & JSON-\/объект с полями surname, name, login, password. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+JSON-\/ответ с результатом регистрации (успешно или с ошибкой). 
+\end{DoxyReturn}
+\Hypertarget{class_func2_serv_a937c225b9d0f9f319dca7569d3a18a6f}\index{Func2Serv@{Func2Serv}!solveChordFromString@{solveChordFromString}}
+\index{solveChordFromString@{solveChordFromString}!Func2Serv@{Func2Serv}}
+\doxysubsubsection{\texorpdfstring{solveChordFromString()}{solveChordFromString()}}
+{\footnotesize\ttfamily \label{class_func2_serv_a937c225b9d0f9f319dca7569d3a18a6f} 
+double Func2\+Serv\+::solve\+Chord\+From\+String (\begin{DoxyParamCaption}\item[{const QString \&}]{eqn}{, }\item[{double}]{eps}{}\end{DoxyParamCaption})}
+
+
+
+Решает квадратное уравнение методом хорд по заданной строке. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em eqn} & Строка уравнения в формате "{}f(x) = a \texorpdfstring{$\ast$}{*} x\texorpdfstring{$^\wedge$}{\string^}2 ± b \texorpdfstring{$\ast$}{*} x ± c"{}. \\
+\hline
+{\em eps} & Точность вычисления корня. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Найденный корень уравнения или NaN при ошибке. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+func2serv.\+h\item 
+func2serv.\+cpp\end{DoxyCompactItemize}

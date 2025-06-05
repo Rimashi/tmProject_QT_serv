@@ -1,0 +1,188 @@
+\doxysection{RSA Class Reference}
+\hypertarget{class_r_s_a}{}\label{class_r_s_a}\index{RSA@{RSA}}
+
+
+Реализация алгоритма асимметричного шифрования \doxylink{class_r_s_a}{RSA}.  
+
+
+
+
+{\ttfamily \#include $<$rsa.\+h$>$}
+
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_r_s_a_1_1_key_pair}{Key\+Pair}}
+\begin{DoxyCompactList}\small\item\em Пара ключей \doxylink{class_r_s_a}{RSA} (открытый и закрытый) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{struct_r_s_a_1_1_key_pair}{Key\+Pair}} \mbox{\hyperlink{class_r_s_a_a9acc51533a537537a7a234f2610ed4a9}{generate\+Keys}} (unsigned int bits)
+\begin{DoxyCompactList}\small\item\em Генерирует пару RSA-\/ключей \end{DoxyCompactList}\item 
+static QString \mbox{\hyperlink{class_r_s_a_adedf9aecc5bfd4b2f9010168a94695e3}{encrypt}} (const QString \&data, const QString \&public\+Key)
+\begin{DoxyCompactList}\small\item\em Шифрует строку с Base64 кодированием результата \end{DoxyCompactList}\item 
+static QString \mbox{\hyperlink{class_r_s_a_a453618c9fddef9cc7baac20cb7ebd369}{decrypt}} (const QString \&encrypted, const QString \&private\+Key)
+\begin{DoxyCompactList}\small\item\em Дешифрует строку из Base64 представления \end{DoxyCompactList}\item 
+static QByte\+Array \mbox{\hyperlink{class_r_s_a_a00430f4186d3fc9441d178c63fd4dbb8}{encrypt\+Bytes}} (const QByte\+Array \&data, const QString \&public\+Key)
+\begin{DoxyCompactList}\small\item\em Шифрует сырые байты с блочной обработкой \end{DoxyCompactList}\item 
+static QByte\+Array \mbox{\hyperlink{class_r_s_a_a73c2f60c4a4994938b9a21800dc7ca71}{decrypt\+Bytes}} (const QByte\+Array \&encrypted, const QString \&private\+Key)
+\begin{DoxyCompactList}\small\item\em Дешифрует сырые байты \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Реализация алгоритма асимметричного шифрования \doxylink{class_r_s_a}{RSA}. 
+
+Класс предоставляет функционал для генерации ключевых пар, шифрования и дешифрования данных с использованием библиотеки GMP для работы с большими числами. 
+
+\label{doc-func-members}
+\Hypertarget{class_r_s_a_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_r_s_a_a453618c9fddef9cc7baac20cb7ebd369}\index{RSA@{RSA}!decrypt@{decrypt}}
+\index{decrypt@{decrypt}!RSA@{RSA}}
+\doxysubsubsection{\texorpdfstring{decrypt()}{decrypt()}}
+{\footnotesize\ttfamily \label{class_r_s_a_a453618c9fddef9cc7baac20cb7ebd369} 
+QString RSA\+::decrypt (\begin{DoxyParamCaption}\item[{const QString \&}]{encrypted}{, }\item[{const QString \&}]{private\+Key}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Дешифрует строку из Base64 представления 
+
+
+\begin{DoxyParams}{Parameters}
+{\em encrypted} & Зашифрованные данные в Base64 \\
+\hline
+{\em private\+Key} & Закрытый ключ в формате "{}d\+:n"{} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Расшифрованная исходная строка 
+\end{DoxyReturn}
+\Hypertarget{class_r_s_a_a73c2f60c4a4994938b9a21800dc7ca71}\index{RSA@{RSA}!decryptBytes@{decryptBytes}}
+\index{decryptBytes@{decryptBytes}!RSA@{RSA}}
+\doxysubsubsection{\texorpdfstring{decryptBytes()}{decryptBytes()}}
+{\footnotesize\ttfamily \label{class_r_s_a_a73c2f60c4a4994938b9a21800dc7ca71} 
+QByte\+Array RSA\+::decrypt\+Bytes (\begin{DoxyParamCaption}\item[{const QByte\+Array \&}]{encrypted}{, }\item[{const QString \&}]{private\+Key}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Дешифрует сырые байты 
+
+
+\begin{DoxyParams}{Parameters}
+{\em encrypted} & Зашифрованные данные (без Base64) \\
+\hline
+{\em private\+Key} & Закрытый ключ в формате "{}d\+:n"{} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Расшифрованные исходные данные
+\end{DoxyReturn}
+Алгоритм\+:
+\begin{DoxyEnumerate}
+\item Декодирование Base64
+\item Разбор закрытого ключа
+\item Определение размера блока\+: bitlen(n)/8
+\item Разбиение на блоки
+\item Дешифрование\+: m = cᵈ mod n
+\end{DoxyEnumerate}
+
+\begin{DoxyWarning}{Warning}
+Требует корректного размера входных данных 
+\end{DoxyWarning}
+\Hypertarget{class_r_s_a_adedf9aecc5bfd4b2f9010168a94695e3}\index{RSA@{RSA}!encrypt@{encrypt}}
+\index{encrypt@{encrypt}!RSA@{RSA}}
+\doxysubsubsection{\texorpdfstring{encrypt()}{encrypt()}}
+{\footnotesize\ttfamily \label{class_r_s_a_adedf9aecc5bfd4b2f9010168a94695e3} 
+QString RSA\+::encrypt (\begin{DoxyParamCaption}\item[{const QString \&}]{data}{, }\item[{const QString \&}]{public\+Key}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Шифрует строку с Base64 кодированием результата 
+
+Шифрует строку с автоматическим Base64 кодированием
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & Исходная строка для шифрования \\
+\hline
+{\em public\+Key} & Открытый ключ в формате "{}e\+:n"{} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Зашифрованные данные в Base64 
+\end{DoxyReturn}
+\Hypertarget{class_r_s_a_a00430f4186d3fc9441d178c63fd4dbb8}\index{RSA@{RSA}!encryptBytes@{encryptBytes}}
+\index{encryptBytes@{encryptBytes}!RSA@{RSA}}
+\doxysubsubsection{\texorpdfstring{encryptBytes()}{encryptBytes()}}
+{\footnotesize\ttfamily \label{class_r_s_a_a00430f4186d3fc9441d178c63fd4dbb8} 
+QByte\+Array RSA\+::encrypt\+Bytes (\begin{DoxyParamCaption}\item[{const QByte\+Array \&}]{data}{, }\item[{const QString \&}]{public\+Key}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Шифрует сырые байты с блочной обработкой 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & Данные для шифрования \\
+\hline
+{\em public\+Key} & Открытый ключ в формате "{}e\+:n"{} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Зашифрованные данные в Base64 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Автоматически разбивает данные на блоки
+\end{DoxyNote}
+Алгоритм\+:
+\begin{DoxyEnumerate}
+\item Разбор открытого ключа
+\item Определение размера блока\+: (bitlen(n)/8) -\/ 1
+\item Разбиение данных на блоки
+\item Шифрование каждого блока\+: c = mᵉ mod n
+\item Кодирование результата в Base64
+\end{DoxyEnumerate}
+
+\begin{DoxyNote}{Note}
+Для преобразования чисел в байты использует mpz\+\_\+import/mpz\+\_\+export 
+\end{DoxyNote}
+\Hypertarget{class_r_s_a_a9acc51533a537537a7a234f2610ed4a9}\index{RSA@{RSA}!generateKeys@{generateKeys}}
+\index{generateKeys@{generateKeys}!RSA@{RSA}}
+\doxysubsubsection{\texorpdfstring{generateKeys()}{generateKeys()}}
+{\footnotesize\ttfamily \label{class_r_s_a_a9acc51533a537537a7a234f2610ed4a9} 
+\mbox{\hyperlink{struct_r_s_a_1_1_key_pair}{RSA\+::\+Key\+Pair}} RSA\+::generate\+Keys (\begin{DoxyParamCaption}\item[{unsigned int}]{bits}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Генерирует пару RSA-\/ключей 
+
+
+\begin{DoxyParams}{Parameters}
+{\em bits} & Размер модуля n в битах (обычно 2048+) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Сгенерированная пара ключей 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Испует e=65537 по умолчанию, при необходимости генерирует другое
+\end{DoxyNote}
+Алгоритм\+:
+\begin{DoxyEnumerate}
+\item Генерация двух различных простых чисел p и q
+\item Вычисление n = p \texorpdfstring{$\ast$}{*} q
+\item Вычисление φ(n) = (p-\/1)\texorpdfstring{$\ast$}{*}(q-\/1)
+\item Выбор открытой экспоненты e (65537 по умолчанию)
+\item Проверка gcd(e, φ(n)) == 1
+\item Вычисление d = e⁻¹ mod φ(n)
+\end{DoxyEnumerate}
+
+\begin{DoxyNote}{Note}
+Использует криптографически безопасный ГСЧ 
+\end{DoxyNote}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+rsa.\+h\item 
+rsa.\+cpp\end{DoxyCompactItemize}

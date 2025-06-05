@@ -1,0 +1,109 @@
+\doxysection{Server\+\_\+api Class Reference}
+\hypertarget{class_server__api}{}\label{class_server__api}\index{Server\_api@{Server\_api}}
+
+
+Класс TCP-\/сервера для обработки клиентских подключений и работы с БД.  
+
+
+
+
+{\ttfamily \#include $<$server\+\_\+api.\+h$>$}
+
+Inheritance diagram for Server\+\_\+api\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_server__api}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_server__api_ad1a40a78d447f9c24eb27956cbf473b5}{Server\+\_\+api}} (QObject \texorpdfstring{$\ast$}{*}parent=nullptr)
+\begin{DoxyCompactList}\small\item\em Конструктор сервера. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_server__api_a062874a1173b6f40f2126eb0f7bcdc7a}{add\+Aes\+Key}} (QTcp\+Socket \texorpdfstring{$\ast$}{*}socket, const QByte\+Array \&key)
+\begin{DoxyCompactList}\small\item\em Добавляет AES-\/ключ, связанный с определённым сокетом клиента. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_server__api_adbdf8792919a892d743bff3d20ccaad6}{incoming\+Connection}} (qintptr socket\+Descriptor) override
+\begin{DoxyCompactList}\small\item\em Обработка нового входящего подключения. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Класс TCP-\/сервера для обработки клиентских подключений и работы с БД. 
+
+Обрабатывает входящие подключения, обмен ключами шифрования (\doxylink{class_r_s_a}{RSA} + \doxylink{class_a_e_s}{AES}), а также маршрутизирует действия клиента через \doxylink{class_func2_serv}{Func2\+Serv}. 
+
+\label{doc-constructors}
+\Hypertarget{class_server__api_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_server__api_ad1a40a78d447f9c24eb27956cbf473b5}\index{Server\_api@{Server\_api}!Server\_api@{Server\_api}}
+\index{Server\_api@{Server\_api}!Server\_api@{Server\_api}}
+\doxysubsubsection{\texorpdfstring{Server\_api()}{Server\_api()}}
+{\footnotesize\ttfamily \label{class_server__api_ad1a40a78d447f9c24eb27956cbf473b5} 
+Server\+\_\+api\+::\+Server\+\_\+api (\begin{DoxyParamCaption}\item[{QObject \texorpdfstring{$\ast$}{*}}]{parent}{ = {\ttfamily nullptr}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Конструктор сервера. 
+
+Конструктор, запускающий сервер и инициализирующий базу данных.
+
+
+\begin{DoxyParams}{Parameters}
+{\em parent} & Родительский объект. \\
+\hline
+\end{DoxyParams}
+
+
+\label{doc-func-members}
+\Hypertarget{class_server__api_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_server__api_a062874a1173b6f40f2126eb0f7bcdc7a}\index{Server\_api@{Server\_api}!addAesKey@{addAesKey}}
+\index{addAesKey@{addAesKey}!Server\_api@{Server\_api}}
+\doxysubsubsection{\texorpdfstring{addAesKey()}{addAesKey()}}
+{\footnotesize\ttfamily \label{class_server__api_a062874a1173b6f40f2126eb0f7bcdc7a} 
+void Server\+\_\+api\+::add\+Aes\+Key (\begin{DoxyParamCaption}\item[{QTcp\+Socket \texorpdfstring{$\ast$}{*}}]{socket}{, }\item[{const QByte\+Array \&}]{key}{}\end{DoxyParamCaption})}
+
+
+
+Добавляет AES-\/ключ, связанный с определённым сокетом клиента. 
+
+Добавляет AES-\/ключ для определённого клиента.
+
+
+\begin{DoxyParams}{Parameters}
+{\em socket} & Сокет клиента. \\
+\hline
+{\em key} & AES-\/ключ в виде байтового массива.\\
+\hline
+{\em socket} & Сокет клиента. \\
+\hline
+{\em key} & Ключ \doxylink{class_a_e_s}{AES} в виде QByte\+Array. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_server__api_adbdf8792919a892d743bff3d20ccaad6}\index{Server\_api@{Server\_api}!incomingConnection@{incomingConnection}}
+\index{incomingConnection@{incomingConnection}!Server\_api@{Server\_api}}
+\doxysubsubsection{\texorpdfstring{incomingConnection()}{incomingConnection()}}
+{\footnotesize\ttfamily \label{class_server__api_adbdf8792919a892d743bff3d20ccaad6} 
+void Server\+\_\+api\+::incoming\+Connection (\begin{DoxyParamCaption}\item[{qintptr}]{socket\+Descriptor}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}}
+
+
+
+Обработка нового входящего подключения. 
+
+Обрабатывает новое входящее подключение от клиента.
+
+
+\begin{DoxyParams}{Parameters}
+{\em socket\+Descriptor} & Дескриптор нового сокета.\\
+\hline
+{\em socket\+Descriptor} & Дескриптор сокета клиента. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+server\+\_\+api.\+h\item 
+server\+\_\+api.\+cpp\end{DoxyCompactItemize}

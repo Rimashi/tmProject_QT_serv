@@ -1,0 +1,345 @@
+\doxysection{Database Class Reference}
+\hypertarget{class_database}{}\label{class_database}\index{Database@{Database}}
+
+
+Класс для работы с SQLite базой данных пользователей и результатов тестов.  
+
+
+
+
+{\ttfamily \#include $<$database.\+h$>$}
+
+Inheritance diagram for Database\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_database}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_database_acaf807c91592043128570d7e305f035b}{open}} (const QString \&path)
+\begin{DoxyCompactList}\small\item\em Открывает подключение к базе данных по указанному пути. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_database_ab89cb07242f0ab1d4058974bf3e7cf19}{close}} ()
+\begin{DoxyCompactList}\small\item\em Закрывает соединение с базой данных. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_database_a286ca4eb473f35a8a3d01cd65811257c}{user\+Exists}} (const QString \&login)
+\begin{DoxyCompactList}\small\item\em Проверяет, существует ли пользователь с данным логином. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_database_a0efaa53cf6afd50f2888d0d01dcad5a8}{register\+User}} (const QString \&login, const QString \&password\+Hash, const QString \&name, const QString \&surname)
+\begin{DoxyCompactList}\small\item\em Регистрирует нового пользователя в базе данных. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_database_ada8e6c83d86a99e0563f26898f77a94a}{validate\+User}} (const QString \&login, const QString \&password\+Hash, QJson\+Object \&user\+Data)
+\begin{DoxyCompactList}\small\item\em Проверяет корректность логина и пароля. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_database_af53fd603533ebe087433c324f1a5c766}{initialize\+Admin}} ()
+\begin{DoxyCompactList}\small\item\em Инициализирует администратора, если он отсутствует. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_database_a456c84197355671da02e3305c114a6b2}{save\+Test\+Result}} (const QString \&login, int test\+Number, int score)
+\begin{DoxyCompactList}\small\item\em Сохраняет результат теста в базу данных. \end{DoxyCompactList}\item 
+QJson\+Object \mbox{\hyperlink{class_database_aa3486be6762753aad5580bfe9b66886f}{get\+Student\+Statistics}} (const QString \&login)
+\begin{DoxyCompactList}\small\item\em Получает полную статистику студента. \end{DoxyCompactList}\item 
+QJson\+Object \mbox{\hyperlink{class_database_af2ae7fa84451db0c0565a4542644f281}{get\+Students}} ()
+\begin{DoxyCompactList}\small\item\em Возвращает список всех студентов в системе (без админа). \end{DoxyCompactList}\item 
+QJson\+Object \mbox{\hyperlink{class_database_a34fc9055defa9b12e51fe319b0a38894}{get\+Test\+Statistics}} ()
+\begin{DoxyCompactList}\small\item\em Получает общую статистику по всем тестам всех студентов. \end{DoxyCompactList}\item 
+QString \mbox{\hyperlink{class_database_a048448519cad13950bddc39afd940bb6}{last\+Error}} () const
+\begin{DoxyCompactList}\small\item\em Возвращает текст последней ошибки. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_database}{Database}} \& \mbox{\hyperlink{class_database_ad5b7765eea166c3dd966cd0d2e4225e5}{instance}} ()
+\begin{DoxyCompactList}\small\item\em Получить экземпляр класса \doxylink{class_database}{Database} (синглтон). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Класс для работы с SQLite базой данных пользователей и результатов тестов. 
+
+Реализован как синглтон — используется метод \doxylink{class_database_ad5b7765eea166c3dd966cd0d2e4225e5}{instance()}. 
+
+\label{doc-func-members}
+\Hypertarget{class_database_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_database_ab89cb07242f0ab1d4058974bf3e7cf19}\index{Database@{Database}!close@{close}}
+\index{close@{close}!Database@{Database}}
+\doxysubsubsection{\texorpdfstring{close()}{close()}}
+{\footnotesize\ttfamily \label{class_database_ab89cb07242f0ab1d4058974bf3e7cf19} 
+void Database\+::close (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Закрывает соединение с базой данных. 
+
+Закрывает подключение к базе данных \Hypertarget{class_database_af2ae7fa84451db0c0565a4542644f281}\index{Database@{Database}!getStudents@{getStudents}}
+\index{getStudents@{getStudents}!Database@{Database}}
+\doxysubsubsection{\texorpdfstring{getStudents()}{getStudents()}}
+{\footnotesize\ttfamily \label{class_database_af2ae7fa84451db0c0565a4542644f281} 
+QJson\+Object Database\+::get\+Students (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Возвращает список всех студентов в системе (без админа). 
+
+Получает список всех студентов, кроме админа
+
+\begin{DoxyReturn}{Returns}
+JSON-\/объект с массивом студентов.
+
+JSON-\/объект с массивом пользователей 
+\end{DoxyReturn}
+\Hypertarget{class_database_aa3486be6762753aad5580bfe9b66886f}\index{Database@{Database}!getStudentStatistics@{getStudentStatistics}}
+\index{getStudentStatistics@{getStudentStatistics}!Database@{Database}}
+\doxysubsubsection{\texorpdfstring{getStudentStatistics()}{getStudentStatistics()}}
+{\footnotesize\ttfamily \label{class_database_aa3486be6762753aad5580bfe9b66886f} 
+QJson\+Object Database\+::get\+Student\+Statistics (\begin{DoxyParamCaption}\item[{const QString \&}]{login}{}\end{DoxyParamCaption})}
+
+
+
+Получает полную статистику студента. 
+
+Получает статистику результатов тестов по конкретному студенту
+
+
+\begin{DoxyParams}{Parameters}
+{\em login} & Логин студента. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+JSON-\/объект с ФИО и массивом результатов тестов.
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em login} & Логин студента \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+JSON-\/объект с ФИО и списком тестов 
+\end{DoxyReturn}
+\Hypertarget{class_database_a34fc9055defa9b12e51fe319b0a38894}\index{Database@{Database}!getTestStatistics@{getTestStatistics}}
+\index{getTestStatistics@{getTestStatistics}!Database@{Database}}
+\doxysubsubsection{\texorpdfstring{getTestStatistics()}{getTestStatistics()}}
+{\footnotesize\ttfamily \label{class_database_a34fc9055defa9b12e51fe319b0a38894} 
+QJson\+Object Database\+::get\+Test\+Statistics (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Получает общую статистику по всем тестам всех студентов. 
+
+Получает объединённую статистику по всем пользователям и тестам
+
+\begin{DoxyReturn}{Returns}
+JSON-\/объект с массивом всех попыток тестов.
+
+JSON-\/объект с общей статистикой 
+\end{DoxyReturn}
+\Hypertarget{class_database_af53fd603533ebe087433c324f1a5c766}\index{Database@{Database}!initializeAdmin@{initializeAdmin}}
+\index{initializeAdmin@{initializeAdmin}!Database@{Database}}
+\doxysubsubsection{\texorpdfstring{initializeAdmin()}{initializeAdmin()}}
+{\footnotesize\ttfamily \label{class_database_af53fd603533ebe087433c324f1a5c766} 
+void Database\+::initialize\+Admin (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Инициализирует администратора, если он отсутствует. 
+
+Инициализирует администратора, если он отсутствует в базе
+
+Логин\+: admin, пароль\+: admin123, имя и фамилия\+: Admin. \Hypertarget{class_database_ad5b7765eea166c3dd966cd0d2e4225e5}\index{Database@{Database}!instance@{instance}}
+\index{instance@{instance}!Database@{Database}}
+\doxysubsubsection{\texorpdfstring{instance()}{instance()}}
+{\footnotesize\ttfamily \label{class_database_ad5b7765eea166c3dd966cd0d2e4225e5} 
+\mbox{\hyperlink{class_database}{Database}} \& Database\+::instance (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Получить экземпляр класса \doxylink{class_database}{Database} (синглтон). 
+
+\begin{DoxyReturn}{Returns}
+Ссылка на единственный экземпляр \doxylink{class_database}{Database}. 
+\end{DoxyReturn}
+\Hypertarget{class_database_a048448519cad13950bddc39afd940bb6}\index{Database@{Database}!lastError@{lastError}}
+\index{lastError@{lastError}!Database@{Database}}
+\doxysubsubsection{\texorpdfstring{lastError()}{lastError()}}
+{\footnotesize\ttfamily \label{class_database_a048448519cad13950bddc39afd940bb6} 
+QString Database\+::last\+Error (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Возвращает текст последней ошибки. 
+
+Возвращает последнюю ошибку, произошедшую в базе данных
+
+\begin{DoxyReturn}{Returns}
+Строка с описанием ошибки.
+
+Строка с описанием ошибки 
+\end{DoxyReturn}
+\Hypertarget{class_database_acaf807c91592043128570d7e305f035b}\index{Database@{Database}!open@{open}}
+\index{open@{open}!Database@{Database}}
+\doxysubsubsection{\texorpdfstring{open()}{open()}}
+{\footnotesize\ttfamily \label{class_database_acaf807c91592043128570d7e305f035b} 
+bool Database\+::open (\begin{DoxyParamCaption}\item[{const QString \&}]{path}{}\end{DoxyParamCaption})}
+
+
+
+Открывает подключение к базе данных по указанному пути. 
+
+Открывает SQLite-\/базу данных и инициализирует необходимые таблицы
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & Путь к SQLite-\/файлу. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true если успешно, false в случае ошибки.
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em path} & Путь к файлу базы данных \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true при успешном открытии и инициализации, иначе false 
+\end{DoxyReturn}
+\Hypertarget{class_database_a0efaa53cf6afd50f2888d0d01dcad5a8}\index{Database@{Database}!registerUser@{registerUser}}
+\index{registerUser@{registerUser}!Database@{Database}}
+\doxysubsubsection{\texorpdfstring{registerUser()}{registerUser()}}
+{\footnotesize\ttfamily \label{class_database_a0efaa53cf6afd50f2888d0d01dcad5a8} 
+bool Database\+::register\+User (\begin{DoxyParamCaption}\item[{const QString \&}]{login}{, }\item[{const QString \&}]{password\+Hash}{, }\item[{const QString \&}]{name}{, }\item[{const QString \&}]{surname}{}\end{DoxyParamCaption})}
+
+
+
+Регистрирует нового пользователя в базе данных. 
+
+Регистрирует нового пользователя
+
+
+\begin{DoxyParams}{Parameters}
+{\em login} & Логин. \\
+\hline
+{\em password\+Hash} & Хэш пароля (SHA-\/384). \\
+\hline
+{\em name} & Имя. \\
+\hline
+{\em surname} & Фамилия. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true если регистрация прошла успешно, иначе false.
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em login} & Логин \\
+\hline
+{\em password\+Hash} & Хэш пароля \\
+\hline
+{\em name} & Имя \\
+\hline
+{\em surname} & Фамилия \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true, если регистрация успешна, иначе false 
+\end{DoxyReturn}
+\Hypertarget{class_database_a456c84197355671da02e3305c114a6b2}\index{Database@{Database}!saveTestResult@{saveTestResult}}
+\index{saveTestResult@{saveTestResult}!Database@{Database}}
+\doxysubsubsection{\texorpdfstring{saveTestResult()}{saveTestResult()}}
+{\footnotesize\ttfamily \label{class_database_a456c84197355671da02e3305c114a6b2} 
+bool Database\+::save\+Test\+Result (\begin{DoxyParamCaption}\item[{const QString \&}]{login}{, }\item[{int}]{test\+Number}{, }\item[{int}]{score}{}\end{DoxyParamCaption})}
+
+
+
+Сохраняет результат теста в базу данных. 
+
+Сохраняет результат прохождения теста пользователем
+
+
+\begin{DoxyParams}{Parameters}
+{\em login} & Логин студента. \\
+\hline
+{\em test\+Number} & Номер теста. \\
+\hline
+{\em score} & Результат в процентах (0–100). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true если сохранено успешно, иначе false.
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em login} & Логин пользователя \\
+\hline
+{\em test\+Number} & Номер теста \\
+\hline
+{\em score} & Результат (в процентах) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true, если сохранение прошло успешно, иначе false 
+\end{DoxyReturn}
+\Hypertarget{class_database_a286ca4eb473f35a8a3d01cd65811257c}\index{Database@{Database}!userExists@{userExists}}
+\index{userExists@{userExists}!Database@{Database}}
+\doxysubsubsection{\texorpdfstring{userExists()}{userExists()}}
+{\footnotesize\ttfamily \label{class_database_a286ca4eb473f35a8a3d01cd65811257c} 
+bool Database\+::user\+Exists (\begin{DoxyParamCaption}\item[{const QString \&}]{login}{}\end{DoxyParamCaption})}
+
+
+
+Проверяет, существует ли пользователь с данным логином. 
+
+Проверяет, существует ли пользователь с заданным логином
+
+
+\begin{DoxyParams}{Parameters}
+{\em login} & Логин пользователя. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true если пользователь существует, иначе false.
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em login} & Логин пользователя \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true, если пользователь существует, иначе false 
+\end{DoxyReturn}
+\Hypertarget{class_database_ada8e6c83d86a99e0563f26898f77a94a}\index{Database@{Database}!validateUser@{validateUser}}
+\index{validateUser@{validateUser}!Database@{Database}}
+\doxysubsubsection{\texorpdfstring{validateUser()}{validateUser()}}
+{\footnotesize\ttfamily \label{class_database_ada8e6c83d86a99e0563f26898f77a94a} 
+bool Database\+::validate\+User (\begin{DoxyParamCaption}\item[{const QString \&}]{login}{, }\item[{const QString \&}]{password\+Hash}{, }\item[{QJson\+Object \&}]{user\+Data}{}\end{DoxyParamCaption})}
+
+
+
+Проверяет корректность логина и пароля. 
+
+Проверяет логин и хэш пароля, возвращает данные пользователя
+
+
+\begin{DoxyParams}{Parameters}
+{\em login} & Логин. \\
+\hline
+{\em password\+Hash} & Хэш пароля. \\
+\hline
+{\em user\+Data} & Объект JSON, куда будут записаны имя, фамилия и роль при успехе. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true если пользователь найден и пароль верен, иначе false.
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em login} & Логин \\
+\hline
+{\em password\+Hash} & Хэш пароля \\
+\hline
+{\em user\+Data} & Объект, в который записываются данные пользователя \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true, если пользователь найден и пароль совпадает, иначе false 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+database.\+h\item 
+database.\+cpp\end{DoxyCompactItemize}

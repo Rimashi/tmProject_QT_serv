@@ -1,0 +1,10 @@
+release/main.o
+release/aes.o
+release/database.o
+release/func2serv.o
+release/rsa.o
+release/server_api.o
+release/sha384.o
+release/moc_database.o
+release/moc_func2serv.o
+release/moc_server_api.o

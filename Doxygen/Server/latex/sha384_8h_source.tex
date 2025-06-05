@@ -1,0 +1,41 @@
+\doxysection{sha384.\+h}
+\hypertarget{sha384_8h_source}{}\label{sha384_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ SHA384\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ SHA384\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <QString>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <QJsonObject>}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_s_h_a384}{SHA384}}\ \{}
+\DoxyCodeLine{00015\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keyword}{static}\ QString\ \mbox{\hyperlink{class_s_h_a384_a4ea619c0c386d1f63240274f7fda2e64}{hash}}(\textcolor{keyword}{const}\ QString\&\ input);}
+\DoxyCodeLine{00022\ \ \ \ \ }
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ uint64\_t\ \mbox{\hyperlink{class_s_h_a384_aaee3cc9d338edd1f33045e9b6f13c510}{K}}[80];}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keyword}{static}\ uint64\_t\ rotateRight(uint64\_t\ x,\ uint64\_t\ n);}
+\DoxyCodeLine{00033\ \ \ \ \ }
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keyword}{static}\ uint64\_t\ shiftRight(uint64\_t\ x,\ uint64\_t\ n);}
+\DoxyCodeLine{00040\ \ \ \ \ }
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keyword}{static}\ uint64\_t\ ch(uint64\_t\ x,\ uint64\_t\ y,\ uint64\_t\ z);}
+\DoxyCodeLine{00047\ \ \ \ \ }
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keyword}{static}\ uint64\_t\ maj(uint64\_t\ x,\ uint64\_t\ y,\ uint64\_t\ z);}
+\DoxyCodeLine{00054\ \ \ \ \ }
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keyword}{static}\ uint64\_t\ sigma0(uint64\_t\ x);}
+\DoxyCodeLine{00061\ \ \ \ \ }
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keyword}{static}\ uint64\_t\ sigma1(uint64\_t\ x);}
+\DoxyCodeLine{00068\ \ \ \ \ }
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keyword}{static}\ uint64\_t\ gamma0(uint64\_t\ x);}
+\DoxyCodeLine{00075\ \ \ \ \ }
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keyword}{static}\ uint64\_t\ gamma1(uint64\_t\ x);}
+\DoxyCodeLine{00082\ \ \ \ \ }
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ padMessage(std::vector<uint8\_t>\&\ message);}
+\DoxyCodeLine{00093\ \ \ \ \ }
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ processBlock(\textcolor{keyword}{const}\ uint8\_t*\ block,\ uint64\_t*\ state);}
+\DoxyCodeLine{00100\ \};}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00102\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ SHA384\_H}}
+
+\end{DoxyCode}

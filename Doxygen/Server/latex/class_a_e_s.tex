@@ -1,0 +1,131 @@
+\doxysection{AES Class Reference}
+\hypertarget{class_a_e_s}{}\label{class_a_e_s}\index{AES@{AES}}
+
+
+Реализация алгоритма шифрования AES-\/128 (Advanced Encryption Standard)  
+
+
+
+
+{\ttfamily \#include $<$aes.\+h$>$}
+
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static QByte\+Array \mbox{\hyperlink{class_a_e_s_a26a87d6223e0709b414afe11d4b9d65b}{generate\+Key}} ()
+\begin{DoxyCompactList}\small\item\em Генерирует случайный 128-\/битный ключ \end{DoxyCompactList}\item 
+static QByte\+Array \mbox{\hyperlink{class_a_e_s_a323905ceff567834a51319699fc21445}{encrypt}} (const QByte\+Array \&data, const QByte\+Array \&key)
+\begin{DoxyCompactList}\small\item\em Шифрует данные с использованием AES-\/128. \end{DoxyCompactList}\item 
+static QByte\+Array \mbox{\hyperlink{class_a_e_s_af0da64cad523d71fb74f7d6a7e6e6856}{decrypt}} (const QByte\+Array \&data, const QByte\+Array \&key)
+\begin{DoxyCompactList}\small\item\em Дешифрует данные с использованием AES-\/128. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Реализация алгоритма шифрования AES-\/128 (Advanced Encryption Standard) 
+
+Класс предоставляет статические методы для генерации ключей, шифрования и дешифрования данных с использованием 128-\/битного ключа и режима ECB (Electronic Codebook). \begin{DoxyWarning}{Warning}
+Не используйте ECB режим для чувствительных данных! Для реальных проектов рекомендуется реализовать CBC или другие более безопасные режимы. 
+\end{DoxyWarning}
+
+
+\label{doc-func-members}
+\Hypertarget{class_a_e_s_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_a_e_s_af0da64cad523d71fb74f7d6a7e6e6856}\index{AES@{AES}!decrypt@{decrypt}}
+\index{decrypt@{decrypt}!AES@{AES}}
+\doxysubsubsection{\texorpdfstring{decrypt()}{decrypt()}}
+{\footnotesize\ttfamily \label{class_a_e_s_af0da64cad523d71fb74f7d6a7e6e6856} 
+QByte\+Array AES\+::decrypt (\begin{DoxyParamCaption}\item[{const QByte\+Array \&}]{data}{, }\item[{const QByte\+Array \&}]{key}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Дешифрует данные с использованием AES-\/128. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & Зашифрованные данные \\
+\hline
+{\em key} & 128-\/битный ключ шифрования \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Расшифрованные данные в формате QByte\+Array 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Автоматически удаляет PKCS\#7 padding
+\end{DoxyNote}
+Алгоритм\+:
+\begin{DoxyEnumerate}
+\item Проверка корректности размеров
+\item Генерация раундовых ключей
+\item Обработка блоков по 16 байт (в обратном порядке)\+:
+\begin{DoxyItemize}
+\item Начальный Add\+Round\+Key (с последним ключом)
+\item 9 основных раундов (Inv\+Shift\+Rows, Inv\+Sub\+Bytes, Add\+Round\+Key, Inv\+Mix\+Columns)
+\item Финальный раунд (без Inv\+Mix\+Columns)
+\end{DoxyItemize}
+\item Удаление PKCS\#7 padding
+\end{DoxyEnumerate}
+
+\begin{DoxyNote}{Note}
+Автоматически проверяет корректность padding 
+\end{DoxyNote}
+\Hypertarget{class_a_e_s_a323905ceff567834a51319699fc21445}\index{AES@{AES}!encrypt@{encrypt}}
+\index{encrypt@{encrypt}!AES@{AES}}
+\doxysubsubsection{\texorpdfstring{encrypt()}{encrypt()}}
+{\footnotesize\ttfamily \label{class_a_e_s_a323905ceff567834a51319699fc21445} 
+QByte\+Array AES\+::encrypt (\begin{DoxyParamCaption}\item[{const QByte\+Array \&}]{data}{, }\item[{const QByte\+Array \&}]{key}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Шифрует данные с использованием AES-\/128. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & Исходные данные для шифрования \\
+\hline
+{\em key} & 128-\/битный ключ шифрования \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Зашифрованные данные в формате QByte\+Array 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Автоматически добавляет PKCS\#7 padding
+\end{DoxyNote}
+Алгоритм\+:
+\begin{DoxyEnumerate}
+\item Добавление PKCS\#7 padding
+\item Генерация раундовых ключей
+\item Обработка блоков по 16 байт\+:
+\begin{DoxyItemize}
+\item Начальный Add\+Round\+Key
+\item 9 основных раундов (Sub\+Bytes, Shift\+Rows, Mix\+Columns, Add\+Round\+Key)
+\item Финальный раунд (без Mix\+Columns)
+\end{DoxyItemize}
+\end{DoxyEnumerate}
+
+\begin{DoxyWarning}{Warning}
+В отладочном режиме выводит размеры данных 
+\end{DoxyWarning}
+\Hypertarget{class_a_e_s_a26a87d6223e0709b414afe11d4b9d65b}\index{AES@{AES}!generateKey@{generateKey}}
+\index{generateKey@{generateKey}!AES@{AES}}
+\doxysubsubsection{\texorpdfstring{generateKey()}{generateKey()}}
+{\footnotesize\ttfamily \label{class_a_e_s_a26a87d6223e0709b414afe11d4b9d65b} 
+QByte\+Array AES\+::generate\+Key (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Генерирует случайный 128-\/битный ключ 
+
+Генерирует криптографически безопасный случайный ключ
+
+\begin{DoxyReturn}{Returns}
+Сгенерированный ключ длиной 16 байт (128 бит)
+\end{DoxyReturn}
+Использует встроенный генератор Qt (QRandom\+Generator) для создания 16 случайных байтов. В отладочном режиме выводит информацию о генерации. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+aes.\+h\item 
+aes.\+cpp\end{DoxyCompactItemize}

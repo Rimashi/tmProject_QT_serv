@@ -1,0 +1,45 @@
+\doxysection{func2serv.\+h}
+\hypertarget{func2serv_8h_source}{}\label{func2serv_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ FUNC2SERV\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ FUNC2SERV\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <QObject>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <QJsonObject>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}database.h"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <QTcpSocket>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <QByteArray>}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_server__api}{Server\_api}};\ \textcolor{comment}{//\ Forward\ declaration}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_func2_serv_ae5f7ea5e8fd4ec68c7845bad901a6932}{Func2Serv}}\ :\ \textcolor{keyword}{public}\ QObject\ \{}
+\DoxyCodeLine{00013\ \ \ \ \ Q\_OBJECT}
+\DoxyCodeLine{00014\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{class_func2_serv_ae5f7ea5e8fd4ec68c7845bad901a6932}{Func2Serv}}(\mbox{\hyperlink{class_server__api}{Server\_api}}*\ serverApi,\ QObject\ *parent\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \ \ \ \ QJsonObject\ \mbox{\hyperlink{class_func2_serv_af69fa5a3ca3914dd0333298c539055a3}{handleRegistration}}(\textcolor{keyword}{const}\ QJsonObject\ \&data);}
+\DoxyCodeLine{00018\ \ \ \ \ QJsonObject\ \mbox{\hyperlink{class_func2_serv_af853f9693fd3acbaaf80a85ffe843381}{handleLogin}}(\textcolor{keyword}{const}\ QJsonObject\ \&data);}
+\DoxyCodeLine{00019\ \ \ \ \ QJsonObject\ \mbox{\hyperlink{class_func2_serv_aa2a0e5ab8ec40825d5320218913bd3b9}{handlePublicKey}}(\textcolor{keyword}{const}\ QJsonObject\ \&data,\ QTcpSocket*\ socket);}
+\DoxyCodeLine{00020\ \ \ \ \ QJsonObject\ \mbox{\hyperlink{class_func2_serv_afa3f6b84db02a65a1cdac3a61d03f15c}{get\_user\_statistic}}(\textcolor{keyword}{const}\ QJsonObject\ \&data);}
+\DoxyCodeLine{00021\ \ \ \ \ QJsonObject\ \mbox{\hyperlink{class_func2_serv_abc6bcff3979d87538408380feb611d0c}{get\_users\_admin}}();}
+\DoxyCodeLine{00022\ \ \ \ \ QJsonObject\ \mbox{\hyperlink{class_func2_serv_af51887647f0c51468444255615aec5c4}{get\_statistics\_admin}}();}
+\DoxyCodeLine{00023\ \ \ \ \ QJsonObject\ \mbox{\hyperlink{class_func2_serv_aa6b2ebd967fff0c412912e79b67ac75b}{get\_user\_info}}(\textcolor{keyword}{const}\ QJsonObject\ \&data);}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \ \ QJsonObject\ \mbox{\hyperlink{class_func2_serv_a039ed36e3717958ebdbb9b6fbc78845c}{checkTest1}}(\textcolor{keyword}{const}\ QJsonObject\ \&data);}
+\DoxyCodeLine{00026\ \ \ \ \ QString\ \mbox{\hyperlink{class_func2_serv_ae9fd18c7bcefac8aecbd3b044d09a296}{generateRandomEquation}}();}
+\DoxyCodeLine{00027\ \ \ \ \ QJsonObject\ \mbox{\hyperlink{class_func2_serv_a4ddc3515f0c4b00e814540279df1d132}{generateTest1Task}}(\textcolor{keyword}{const}\ QJsonObject\ \&data);}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_func2_serv_a937c225b9d0f9f319dca7569d3a18a6f}{solveChordFromString}}(\textcolor{keyword}{const}\ QString\&\ eqn,\ \textcolor{keywordtype}{double}\ eps);}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ \ \ QString\ \mbox{\hyperlink{class_func2_serv_a11af1509c230bfb3e4b34b013ebf0695}{generateRandomBitString}}(\textcolor{keywordtype}{int}\ length);}
+\DoxyCodeLine{00031\ \ \ \ \ QJsonObject\ \mbox{\hyperlink{class_func2_serv_a2daca48a3a0f7cddef70f9048ddc65a3}{generateTest2Task}}(\textcolor{keyword}{const}\ QJsonObject\ \&data);}
+\DoxyCodeLine{00032\ \ \ \ \ QJsonObject\ \mbox{\hyperlink{class_func2_serv_a6c0c08f3fb058bb889f6f5a03a97c5d7}{checkTest2}}(\textcolor{keyword}{const}\ QJsonObject\ \&data);}
+\DoxyCodeLine{00033\ \ \ \ \ QString\ \mbox{\hyperlink{class_func2_serv_a13b4d421479a5d5565f50c45967e85f9}{extractBitsFromImage}}(\textcolor{keyword}{const}\ QImage\ \&image,\ \textcolor{keywordtype}{int}\ bitCount);}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00036\ \ \ \ \ \mbox{\hyperlink{class_database}{Database}}\&\ db\ =\ \mbox{\hyperlink{class_database_ad5b7765eea166c3dd966cd0d2e4225e5}{Database::instance}}();}
+\DoxyCodeLine{00037\ \ \ \ \ \mbox{\hyperlink{class_server__api}{Server\_api}}*\ serverApi;\ \textcolor{comment}{//\ Ссылка\ на\ сервер\ типа}}
+\DoxyCodeLine{00038\ \};}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ FUNC2SERV\_H}}
+
+\end{DoxyCode}
